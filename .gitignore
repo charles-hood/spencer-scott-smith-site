@@ -1,0 +1,12 @@
+# Read-only source capture — reference only, never deploy
+_raw_mirror/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# QA scratch
+_qa*.html
