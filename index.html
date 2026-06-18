@@ -1,303 +1,555 @@
-<!doctype html>
-<html lang="en" class="preload">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#100c08" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spencer Scott Smith &amp; The Cherokee Roses</title>
+<meta name="description" content="Red clay music rolled in the Mississippi mud — Atlanta Americana, outlaw country & roots rock.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Saira+Condensed:wght@500;600;700;800&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stage-black:#14110f;
+  --stage-black-2:#1c1815;
+  --bone:#ece1c8;
+  --bone-dim:#bdb39c;
+  --clay:#c0622a;
+  --clay-bright:#d97a3c;
+  --oxblood:#6e2a21;
+  --teal:#199391;
+  --teal-dim:#12706e;
+  --amber:#e4a24c;
+  --line:rgba(236,225,200,.16);
+  --maxw:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--stage-black);
+  color:var(--bone);
+  font-family:'Spectral',Georgia,serif;
+  font-size:18px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* ---- film grain overlay ---- */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
 
-  <title>Spencer Scott Smith — Red clay music mixed with the Mississippi mud.</title>
-  <meta name="description" content="Spencer Scott Smith is a Georgia-born country, blues & soul artist with a Mississippi twist. Listen to his music, watch the videos, and catch an upcoming live show." />
-  <link rel="canonical" href="https://spencerscottsmith.com/" />
+/* eyebrow + headings */
+.eyebrow{
+  font-family:'Rye',serif;color:var(--clay-bright);
+  letter-spacing:.06em;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:14px;margin-bottom:14px;
+}
+.eyebrow .rose{width:20px;height:20px;flex:none;}
+h2.sec{
+  font-family:'Saira Condensed',sans-serif;font-weight:800;
+  text-transform:uppercase;letter-spacing:.02em;line-height:.95;
+  font-size:clamp(2.4rem,6vw,4.2rem);color:var(--bone);
+}
+h2.sec em{font-style:normal;color:var(--clay);}
+.lede{color:var(--bone-dim);max-width:60ch;margin-top:14px;font-size:1.08rem;}
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="music.musician" />
-  <meta property="og:site_name" content="Spencer Scott Smith" />
-  <meta property="og:title" content="Spencer Scott Smith — Red clay music mixed with the Mississippi mud." />
-  <meta property="og:description" content="Georgia-born country, blues & soul with a Mississippi twist. Listen, watch, and catch a live show." />
-  <meta property="og:url" content="https://spencerscottsmith.com/" />
-  <meta property="og:image" content="https://spencerscottsmith.com/assets/img/brand/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Spencer Scott Smith" />
-  <meta name="twitter:description" content="Red clay music mixed with the Mississippi mud." />
-  <meta name="twitter:image" content="https://spencerscottsmith.com/assets/img/brand/og-image.jpg" />
+section{padding:96px 0;position:relative;}
+.divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto;}
 
-  <!-- Icons -->
-  <link rel="icon" href="/assets/img/brand/favicon-32.png" sizes="32x32" />
-  <link rel="icon" href="/assets/img/brand/favicon-192.png" sizes="192x192" />
-  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
 
-  <!-- Fonts: Fraunces (display) · Hanken Grotesk (body) · Mrs Saint Delafield (script) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;
+  background:linear-gradient(to bottom,rgba(20,17,15,.95),rgba(20,17,15,.0));
+  transition:background .3s,box-shadow .3s,padding .3s;
+}
+.nav.solid{background:rgba(16,13,11,.97);box-shadow:0 1px 0 var(--line),0 14px 30px rgba(0,0,0,.4);padding:10px 28px;}
+.nav .brand{display:flex;align-items:center;gap:12px;font-family:'Saira Condensed',sans-serif;
+  font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;color:var(--bone);}
+.nav .brand .rose{width:26px;height:26px;}
+.nav ul{display:flex;gap:30px;list-style:none;}
+.nav ul a{font-family:'Saira Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:.14em;font-size:.82rem;color:var(--bone-dim);transition:color .2s;}
+.nav ul a:hover{color:var(--clay-bright);}
+.nav .booking{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;font-size:.78rem;border:1px solid var(--teal);color:var(--bone);
+  padding:8px 16px;border-radius:2px;transition:.2s;}
+.nav .booking:hover{background:var(--teal);}
+.menu-btn{display:none;background:none;border:0;color:var(--bone);font-size:1.6rem;cursor:pointer;}
+@media(max-width:860px){
+  .nav ul,.nav .booking{display:none;}
+  .menu-btn{display:block;}
+}
 
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <noscript><style>[data-reveal]{opacity:1!important;transform:none!important}.preload .hero-text>*{opacity:1!important;transform:none!important}</style></noscript>
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:120px 24px 60px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 50% 18%, rgba(228,162,76,.18), transparent 55%),
+    linear-gradient(to bottom, rgba(20,17,15,.55), rgba(20,17,15,.82) 55%, var(--stage-black) 100%),
+    url("assets/img/band/perf_110s.jpg") center 30%/cover no-repeat;
+}
+/* sweeping stage light */
+.hero::before{
+  content:"";position:absolute;inset:-20% -10%;z-index:0;mix-blend-mode:screen;opacity:.5;
+  background:
+    radial-gradient(40% 60% at 28% 30%, rgba(25,147,145,.55), transparent 60%),
+    radial-gradient(45% 65% at 72% 35%, rgba(192,98,42,.55), transparent 60%),
+    radial-gradient(50% 70% at 50% 80%, rgba(228,162,76,.45), transparent 60%);
+  animation:wash 14s ease-in-out infinite alternate;
+}
+@keyframes wash{
+  0%{transform:translate3d(-3%,-2%,0) scale(1.05);opacity:.42;}
+  50%{transform:translate3d(2%,1%,0) scale(1.12);opacity:.6;}
+  100%{transform:translate3d(4%,-1%,0) scale(1.06);opacity:.46;}
+}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+.hero .logo-card{
+  width:min(720px,90vw);border:1px solid rgba(236,225,200,.14);border-radius:4px;
+  box-shadow:0 30px 80px rgba(0,0,0,.65),0 0 60px rgba(228,162,76,.12);
+  animation:floaty 7s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.hero .kicker{
+  font-family:'Spectral',serif;font-style:italic;color:var(--amber);
+  font-size:clamp(1rem,2.4vw,1.35rem);margin-top:30px;letter-spacing:.02em;
+}
+.cta-row{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap;justify-content:center;}
+.btn{
+  font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;font-size:.95rem;padding:14px 28px;border-radius:2px;
+  display:inline-flex;align-items:center;gap:10px;cursor:pointer;transition:.2s;border:1px solid transparent;
+}
+.btn-clay{background:var(--clay);color:#1b120c;}
+.btn-clay:hover{background:var(--clay-bright);transform:translateY(-2px);}
+.btn-ghost{border-color:var(--bone);color:var(--bone);}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);background:rgba(25,147,145,.08);transform:translateY(-2px);}
+.socials{display:flex;gap:22px;margin-top:30px;}
+.socials a{font-family:'Saira Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+  letter-spacing:.16em;font-size:.74rem;color:var(--bone-dim);transition:color .2s;}
+.socials a:hover{color:var(--clay-bright);}
+.scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;
+  font-family:'Saira Condensed',sans-serif;letter-spacing:.3em;text-transform:uppercase;
+  font-size:.66rem;color:var(--bone-dim);animation:bob 2.2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translate(-50%,0);opacity:.5;}50%{transform:translate(-50%,7px);opacity:1;}}
 
-  <!-- SEO: site-wide structured data (MusicGroup + Person). No per-show Event
-       schema — Bandsintown carries the live listings on the Shows page. -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "MusicGroup",
-        "@id": "https://spencerscottsmith.com/#artist",
-        "name": "Spencer Scott Smith",
-        "genre": ["Country", "Americana", "Blues", "Soul", "R&B"],
-        "url": "https://spencerscottsmith.com/",
-        "image": "https://spencerscottsmith.com/assets/img/brand/og-image.jpg",
-        "description": "Georgia-born country, blues and soul artist with a Mississippi twist.",
-        "foundingLocation": { "@type": "Place", "name": "Woodstock, Georgia, USA" },
-        "sameAs": [
-          "https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW",
-          "https://music.apple.com/us/album/my-saving-grace-single/1675174889",
-          "https://www.youtube.com/channel/UCGu0g-Knj2tZ6KXf41QnIfw",
-          "https://www.facebook.com/spencerscottsmithmusic",
-          "https://www.instagram.com/spencerscottsmith_music/"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://spencerscottsmith.com/#person",
-        "name": "Spencer Scott Smith",
-        "jobTitle": "Singer-songwriter",
-        "memberOf": { "@id": "https://spencerscottsmith.com/#artist" },
-        "homeLocation": { "@type": "Place", "name": "Woodstock, Georgia, USA" }
-      }
-    ]
-  }
-  </script>
+/* ---------- WATCH / latest video ---------- */
+.video-feat{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.video-feat img{width:100%;height:clamp(280px,52vw,540px);object-fit:cover;object-position:center 22%;filter:brightness(.78);}
+.video-feat .play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;
+  background:radial-gradient(60% 60% at 50% 50%,rgba(0,0,0,.1),rgba(20,17,15,.55));transition:.3s;
+}
+.video-feat:hover .play{background:radial-gradient(60% 60% at 50% 50%,rgba(0,0,0,0),rgba(20,17,15,.4));}
+.play-btn{width:78px;height:78px;border-radius:50%;border:2px solid var(--bone);
+  display:flex;align-items:center;justify-content:center;background:rgba(20,17,15,.35);backdrop-filter:blur(2px);}
+.play-btn::after{content:"";border-left:22px solid var(--bone);border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px;}
+.video-feat:hover .play-btn{border-color:var(--clay-bright);}
+.video-feat .vlabel{font-family:'Saira Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;
+  font-size:.82rem;color:var(--bone);}
+
+/* ---------- MUSIC ---------- */
+.music-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+@media(max-width:840px){.music-grid{grid-template-columns:1fr;}}
+.cartouche{
+  position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;text-align:center;
+  border:2px solid var(--teal);border-radius:50%/42%;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(25,147,145,.10),transparent 60%),
+    var(--stage-black-2);
+  box-shadow:inset 0 0 0 6px rgba(20,17,15,1),inset 0 0 0 7px rgba(228,162,76,.4),0 20px 50px rgba(0,0,0,.5);
+  padding:14%;
+}
+.cartouche .rose{width:46px;height:46px;margin:0 auto 14px;}
+.cartouche .single-kick{font-family:'Saira Condensed',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.74rem;color:var(--amber);}
+.cartouche .single-title{font-family:'Rye',serif;color:var(--bone);font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.05;margin:10px 0;}
+.cartouche .single-sub{color:var(--bone-dim);font-style:italic;font-size:.98rem;}
+.stream-list{display:flex;flex-direction:column;gap:14px;margin-top:26px;}
+.stream{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;
+  border:1px solid var(--line);border-radius:3px;background:var(--stage-black-2);transition:.2s;}
+.stream:hover{border-color:var(--clay);transform:translateX(4px);}
+.stream .svc{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;}
+.stream .go{color:var(--clay-bright);font-family:'Saira Condensed',sans-serif;letter-spacing:.1em;font-size:.8rem;text-transform:uppercase;}
+
+/* ---------- SHOWS ---------- */
+#shows{background:linear-gradient(180deg,var(--stage-black) 0%,#100d0b 100%);}
+.show-row{
+  display:grid;grid-template-columns:96px 1fr auto;gap:24px;align-items:center;
+  padding:26px 6px;border-bottom:1px solid var(--line);transition:.2s;
+}
+.show-row:hover{background:rgba(228,162,76,.04);padding-left:14px;}
+.show-row.past{opacity:.5;}
+.date-block{text-align:center;border:1px solid var(--clay);border-radius:3px;padding:8px 4px;}
+.date-block .mo{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--clay-bright);font-size:.82rem;}
+.date-block .day{font-family:'Saira Condensed',sans-serif;font-weight:800;font-size:1.9rem;line-height:1;color:var(--bone);}
+.date-block .yr{font-size:.66rem;color:var(--bone-dim);letter-spacing:.1em;}
+.show-info .venue{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.25rem;color:var(--bone);}
+.show-info .loc{color:var(--bone-dim);}
+.show-info .note{color:var(--teal);font-style:italic;font-size:.92rem;margin-top:2px;}
+.show-cta{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+  font-size:.82rem;border:1px solid var(--clay);color:var(--bone);padding:11px 20px;border-radius:2px;transition:.2s;white-space:nowrap;}
+.show-cta:hover{background:var(--clay);color:#1b120c;}
+.show-cta.done{border-color:var(--line);color:var(--bone-dim);cursor:default;}
+@media(max-width:680px){
+  .show-row{grid-template-columns:70px 1fr;gap:16px;}
+  .show-cta{grid-column:2;justify-self:start;margin-top:6px;}
+}
+
+/* ---------- BAND ---------- */
+.band-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;}
+@media(max-width:880px){.band-grid{grid-template-columns:1fr;}}
+.band-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.band-photos img{width:100%;height:100%;object-fit:cover;border-radius:4px;border:1px solid var(--line);}
+.band-photos .tall{grid-row:span 2;object-position:center 30%;}
+.members{list-style:none;margin-top:28px;border-top:1px solid var(--line);}
+.members li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+.members .nm{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.12rem;color:var(--bone);}
+.members .rl{font-family:'Saira Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--clay-bright);}
+.members .new{color:var(--teal);}
+
+/* ---------- WATCH GRID ---------- */
+.vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:760px){.vid-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.vid-grid{grid-template-columns:1fr;}}
+.vthumb{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line);cursor:pointer;}
+.vthumb img{width:100%;height:200px;object-fit:cover;object-position:center 20%;filter:brightness(.72);transition:.4s;}
+.vthumb:hover img{filter:brightness(.9);transform:scale(1.04);}
+.vthumb .vt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.vthumb .vt-play::after{content:"";width:0;height:0;border-left:18px solid var(--bone);border-top:11px solid transparent;border-bottom:11px solid transparent;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));transition:.2s;}
+.vthumb:hover .vt-play::after{border-left-color:var(--clay-bright);}
+.vthumb .cap{position:absolute;left:0;right:0;bottom:0;padding:14px;font-family:'Saira Condensed',sans-serif;
+  text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;
+  background:linear-gradient(to top,rgba(16,13,11,.92),transparent);}
+
+/* ---------- MERCH ---------- */
+.merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:760px){.merch-grid{grid-template-columns:1fr;}}
+.merch-card{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--stage-black-2);}
+.merch-card img{width:100%;height:280px;object-fit:cover;}
+.merch-card .body{padding:18px 20px;}
+.merch-card .mt{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--bone);font-size:1.05rem;}
+.merch-card .ms{color:var(--bone-dim);font-size:.92rem;margin-top:4px;}
+.tag-soon{display:inline-block;margin-top:12px;font-family:'Saira Condensed',sans-serif;text-transform:uppercase;
+  letter-spacing:.16em;font-size:.66rem;color:#1b120c;background:var(--amber);padding:4px 10px;border-radius:2px;}
+
+/* ---------- LIST / BOOKING ---------- */
+#join{background:
+  radial-gradient(80% 120% at 50% 0%,rgba(110,42,33,.35),transparent 60%),#100d0b;}
+.join-inner{max-width:640px;margin:0 auto;text-align:center;}
+.signup{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;justify-content:center;}
+.signup input{flex:1;min-width:240px;background:var(--stage-black-2);border:1px solid var(--line);color:var(--bone);
+  padding:15px 18px;border-radius:3px;font-family:'Spectral',serif;font-size:1rem;}
+.signup input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal);}
+.book-line{margin-top:30px;color:var(--bone-dim);}
+.book-line a{color:var(--clay-bright);border-bottom:1px solid var(--line);}
+
+/* ---------- FOOTER ---------- */
+footer{padding:54px 0 40px;border-top:1px solid var(--line);text-align:center;}
+footer .rose{width:34px;height:34px;margin:0 auto 16px;}
+footer .ftag{font-family:'Spectral',serif;font-style:italic;color:var(--amber);margin-bottom:14px;}
+footer .fsoc{display:flex;gap:24px;justify-content:center;margin-bottom:18px;}
+footer .fsoc a{font-family:'Saira Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;color:var(--bone-dim);}
+footer .fsoc a:hover{color:var(--clay-bright);}
+footer small{color:var(--bone-dim);font-size:.78rem;letter-spacing:.04em;}
+
+/* POC banner */
+.poc{background:var(--oxblood);color:var(--bone);text-align:center;font-family:'Saira Condensed',sans-serif;
+  text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;padding:7px 12px;}
+
+/* ---------- SOLO ---------- */
+#solo{background:linear-gradient(180deg,#100d0b 0%,var(--stage-black) 100%);}
+.solo-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;margin-top:38px;}
+@media(max-width:840px){.solo-grid{grid-template-columns:1fr;}}
+.solo-single{border:1px solid var(--line);border-radius:6px;padding:40px 36px;
+  background:radial-gradient(120% 100% at 0% 0%,rgba(228,162,76,.10),transparent 55%),var(--stage-black-2);}
+.solo-single .single-kick{font-family:'Saira Condensed',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;color:var(--amber);}
+.solo-title{font-family:'Rye',serif;color:var(--bone);font-size:clamp(2rem,5vw,3rem);line-height:1.02;margin:10px 0 4px;}
+.solo-meta{color:var(--bone-dim);font-style:italic;margin-bottom:6px;}
+.solo-aside .accolade{display:flex;flex-direction:column;gap:3px;border-left:3px solid var(--teal);padding:4px 0 4px 16px;margin-bottom:22px;}
+.solo-aside .acc-pin{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--bone);}
+.solo-aside .accolade .acc-sub{color:var(--bone-dim);font-size:.9rem;}
+.solo-aside .pull{font-family:'Rye',serif;color:var(--clay-bright);font-size:1.35rem;line-height:1.25;margin-bottom:16px;}
+.solo-aside .solo-bio{color:var(--bone-dim);margin-bottom:26px;}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important;}
+  .reveal{opacity:1;transform:none;}
+}
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="Spencer Scott Smith — home">
-      <img src="/assets/img/brand/sss-logo.png" alt="Spencer Scott Smith" width="132" height="76" />
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/" aria-current="page">Home</a>
-      <a href="/#music">Music</a>
-      <a href="/#watch">Watch</a>
-      <a href="/shows.html">Shows</a>
-      <a href="/contact.html">Contact</a>
-      <span class="nav-social">
-        <a href="https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .25c-2.8-1.7-6.3-2.1-10.5-1.1a.75.75 0 11-.3-1.46c4.6-1 8.5-.6 11.6 1.3.36.22.47.69.2 1.01zm1.47-3.2a.94.94 0 01-1.3.3c-3.2-2-8.1-2.5-11.9-1.36a.94.94 0 11-.54-1.8c4.3-1.3 9.7-.7 13.4 1.56.44.27.58.85.34 1.3zm.13-3.3C15.36 8.5 8.9 8.3 5.2 9.4a1.12 1.12 0 11-.65-2.15C8.8 6 16 6.2 20.3 8.74a1.12 1.12 0 11-1.17 1.92z"/></svg></a>
-        <a href="https://www.youtube.com/channel/UCGu0g-Knj2tZ6KXf41QnIfw" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.5 15.5v-7l6.3 3.5z"/></svg></a>
-        <a href="https://www.instagram.com/spencerscottsmith_music/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23C21.8 8.4 21.8 8.8 21.8 12s0 3.6-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.95c-3.15 0-3.52.01-4.76.07-.9.04-1.39.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.04.9.2 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.9-.04 1.39-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.04-.9-.2-1.39-.32-1.71a2.85 2.85 0 00-.69-1.06 2.85 2.85 0 00-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.76-.07zm0 3.32a4.53 4.53 0 110 9.06 4.53 4.53 0 010-9.06zm0 7.47a2.94 2.94 0 100-5.88 2.94 2.94 0 000 5.88zm5.77-7.69a1.06 1.06 0 11-2.12 0 1.06 1.06 0 012.12 0z"/></svg></a>
+<!-- rose symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="rose" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round">
+      <g>
+        <path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z"/>
+        <path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(72 50 50)"/>
+        <path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(144 50 50)"/>
+        <path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(216 50 50)"/>
+        <path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(288 50 50)"/>
+      </g>
+      <circle cx="50" cy="50" r="7" fill="currentColor"/>
+    </g>
+  </symbol>
+</svg>
+
+<div class="poc">Proof of concept · placeholder imagery from live footage · for review</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top"><svg class="rose" style="color:var(--clay)"><use href="#rose"/></svg> SSS &amp; The Cherokee Roses</a>
+  <ul>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#shows">Shows</a></li>
+    <li><a href="#band">The Band</a></li>
+    <li><a href="#solo">Solo</a></li>
+    <li><a href="#watch">Watch</a></li>
+    <li><a href="#merch">Merch</a></li>
+  </ul>
+  <a class="booking" href="#join">Booking</a>
+  <button class="menu-btn" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <img class="logo-card" src="assets/img/band/SSSCR-LOGO.JPEG" alt="Spencer Scott Smith & The Cherokee Roses">
+    <p class="kicker">Atlanta Americana · outlaw country · roots &amp; roll</p>
+    <div class="cta-row">
+      <a class="btn btn-clay" href="#music">▶ Listen</a>
+      <a class="btn btn-ghost" href="#shows">◢ Tour Dates</a>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/spencerscottsmith_music">Instagram</a>
+      <a href="#">Spotify</a>
+      <a href="#">Apple Music</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll</div>
+</header>
+
+<!-- LATEST VIDEO -->
+<section id="latest">
+  <div class="wrap reveal">
+    <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> Straight off the stage</span>
+    <h2 class="sec">Latest <em>Live</em></h2>
+    <a class="video-feat" href="https://www.instagram.com/reel/DYSPUouu46z/" style="display:block;margin-top:30px" target="_blank" rel="noopener">
+      <img src="assets/img/band/perf_75s.jpg" alt="Good Times & Rock n' Roll, live at MadLife">
+      <span class="play">
+        <span class="play-btn"></span>
+        <span class="vlabel">“Good Times &amp; Rock n’ Roll” — Live at MadLife, Woodstock GA</span>
       </span>
-    </nav>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
-  </header>
+    </a>
+  </div>
+</section>
 
-  <main id="main">
+<div class="divider"></div>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">Woodstock, GA &middot; Country &middot; Blues &middot; Soul</p>
-        <h1>
-          <span class="name-script">Spencer Scott Smith</span>
-          <span class="tagline">Red clay music,<br><span class="clay">Mississippi</span> mud.</span>
-        </h1>
-        <p class="sub">A Georgia-born artist with a little edge on the country — peppered with blues, R&amp;B, and a big helping of soul.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#music">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Listen now
-          </a>
-          <a class="btn btn-ghost" href="/shows.html">Upcoming shows</a>
+<!-- MUSIC -->
+<section id="music">
+  <div class="wrap reveal">
+    <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> The music</span>
+    <h2 class="sec">Now <em>Playing</em></h2>
+    <div class="music-grid" style="margin-top:38px">
+      <div class="cartouche">
+        <div>
+          <svg class="rose" style="color:var(--amber)"><use href="#rose"/></svg>
+          <div class="single-kick">Latest Single</div>
+          <div class="single-title">Good Times<br>&amp; Rock n’ Roll</div>
+          <div class="single-sub">“good times, a good woman,<br>and some rock and roll”</div>
         </div>
-      </div>
-      <div class="hero-photo">
-        <picture>
-          <source type="image/webp" srcset="/assets/img/photos/hero-portrait-sm.webp 820w, /assets/img/photos/hero-portrait-lg.webp 1200w" sizes="(max-width:820px) 100vw, 50vw" />
-          <img src="/assets/img/photos/hero-portrait-lg.jpg" alt="Spencer Scott Smith with his guitar at golden hour" fetchpriority="high" width="1200" height="1800" />
-        </picture>
-      </div>
-      <div class="scroll-cue" aria-hidden="true"><span class="dot"></span>Scroll</div>
-    </section>
-
-    <!-- ============ BIO ============ -->
-    <section class="section-pad" id="about">
-      <div class="wrap bio">
-        <div class="bio-feature" data-reveal>
-          <span class="markk" aria-hidden="true">&ldquo;</span>
-          <p class="pullquote">Have I heard that song before?</p>
-          <div class="accolade">
-            <b>Georgia Songbirds Showdown</b>
-            <span>Winner &middot; #7 on the Weekly Top 10 Countdown</span>
-          </div>
-          <div class="tags">
-            <span class="tag">Country</span>
-            <span class="tag">Blues</span>
-            <span class="tag">R&amp;B</span>
-            <span class="tag">Soul</span>
-            <span class="tag">Americana</span>
-          </div>
-        </div>
-        <div class="bio-copy">
-          <p class="eyebrow" data-reveal>The Story</p>
-          <h2 data-reveal data-delay="1">Raised on the red clay<br class="br-lg">river banks of North Georgia.</h2>
-          <p data-reveal data-delay="2">If you like a little edge on your country, peppered with blues, R&amp;B, and a big helping of soul, then search no more. Spencer's original music drips with smooth melodies and imagery that will make you curious — <em>"have I heard that song before?"</em></p>
-          <p data-reveal data-delay="3">The catchy originals are wrapped in an eclectic mix of some of the best songs you forgot you loved — spanning decades and genres, from John Mellencamp and Otis Redding to Sam Cooke, Eric Clapton, and The Black Crowes. Performing since he was nine, with ensembles around the world for over 25 years and a degree in music to show for it, he's now stepping his songwriting into the spotlight and making a real mark on the North Georgia scene.</p>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ============ MUSIC ============ -->
-    <section class="section-pad music" id="music">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow centered" data-reveal>Listen</p>
-          <h2 data-reveal data-delay="1">The Music</h2>
-          <p class="lead" data-reveal data-delay="2">Originals and the songs you forgot you loved. Press play.</p>
-        </div>
-
-        <div class="music-grid">
-          <!-- Feature: full artist player -->
-          <div class="feature embed-card" data-reveal>
-            <button class="facade is-audio" data-embed="spotify" data-id="artist/5Wp9gpcf5KGO6pVcpgvgLW" aria-label="Load Spotify player — all music by Spencer Scott Smith">
-              <span class="facade-media no-img"></span>
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="facade-meta"><span class="kicker">Spotify · Artist</span><span class="title">Every release in one place</span></span>
-            </button>
-          </div>
-
-          <!-- Latest album -->
-          <div class="embed-card" data-reveal data-delay="1">
-            <button class="facade is-audio" data-embed="spotify" data-id="album/7oImQwDx5ZqFyTam3OGhoG" aria-label="Load Spotify album player">
-              <span class="facade-media no-img"></span>
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="facade-meta"><span class="kicker">Spotify · Album</span><span class="title">The latest record</span></span>
-            </button>
-          </div>
-
-          <!-- My Saving Grace single (Apple Music) -->
-          <div class="embed-card" data-reveal data-delay="2">
-            <button class="facade is-audio" data-embed="apple" data-id="us/album/my-saving-grace-single/1675174889" aria-label="Load Apple Music player — My Saving Grace">
-              <span class="facade-media no-img"></span>
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="facade-meta"><span class="kicker">Apple Music · Single</span><span class="title">"My Saving Grace"</span></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="streaming" data-reveal data-delay="2">
-          <a href="https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.5 17.3a.75.75 0 01-1 .25c-2.8-1.7-6.3-2.1-10.5-1.1a.75.75 0 11-.3-1.46c4.6-1 8.5-.6 11.6 1.3.36.22.47.69.2 1.01zm1.47-3.2a.94.94 0 01-1.3.3c-3.2-2-8.1-2.5-11.9-1.36a.94.94 0 11-.54-1.8c4.3-1.3 9.7-.7 13.4 1.56.44.27.58.85.34 1.3zm.13-3.3C15.36 8.5 8.9 8.3 5.2 9.4a1.12 1.12 0 11-.65-2.15C8.8 6 16 6.2 20.3 8.74a1.12 1.12 0 11-1.17 1.92z"/></svg>Spotify</a>
-          <a href="https://music.apple.com/us/album/my-saving-grace-single/1675174889" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.4 5.3v6.9a2.3 2.3 0 11-1.3-2.07V9.1l-4 .85v5.3a2.3 2.3 0 11-1.3-2.07V8.2c0-.3.2-.55.5-.6l5.3-1.13c.4-.08.8.23.8.63z"/></svg>Apple Music</a>
-          <a href="https://www.youtube.com/channel/UCGu0g-Knj2tZ6KXf41QnIfw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.5 15.5v-7l6.3 3.5z"/></svg>YouTube</a>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ============ WATCH ============ -->
-    <section class="section-pad" id="watch">
-      <div class="wrap">
-        <div class="section-head" style="text-align:center;max-width:640px;margin:0 auto clamp(2.5rem,5vw,3.5rem)">
-          <p class="eyebrow centered" data-reveal>Watch</p>
-          <h2 data-reveal data-delay="1" style="font-size:var(--fs-h2);margin-top:.8rem">On Screen</h2>
-        </div>
-        <div class="video-grid">
-          <div class="embed-card" data-reveal>
-            <button class="facade" data-embed="youtube" data-id="_1AGcPRqdkM" style="--ar:16/9" aria-label="Play promo video">
-              <span class="facade-media"><img src="https://i.ytimg.com/vi/_1AGcPRqdkM/hqdefault.jpg" alt="" loading="lazy" /></span>
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="facade-meta"><span class="kicker">Promo Video</span><span class="title">Spencer Scott Smith — Live</span></span>
-            </button>
-          </div>
-          <div class="embed-card" data-reveal data-delay="1">
-            <button class="facade" data-embed="youtube" data-id="2aYx4p_MVDQ" style="--ar:16/9" aria-label="Play video">
-              <span class="facade-media"><img src="https://i.ytimg.com/vi/2aYx4p_MVDQ/hqdefault.jpg" alt="" loading="lazy" /></span>
-              <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-              <span class="facade-meta"><span class="kicker">Featured</span><span class="title">Watch on YouTube</span></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SHOWS TEASER ============ -->
-    <section class="section-pad shows-teaser">
-      <div class="bg" aria-hidden="true">
-        <picture>
-          <source type="image/webp" srcset="/assets/img/photos/hero-portrait-lg.webp" />
-          <img src="/assets/img/photos/hero-portrait-lg.jpg" alt="" loading="lazy" />
-        </picture>
-      </div>
-      <div class="wrap">
-        <p class="eyebrow centered" data-reveal>Live</p>
-        <h2 data-reveal data-delay="1">Catch a show on the red dirt circuit.</h2>
-        <p class="lead" data-reveal data-delay="2">Spencer is making a real impact on the North Georgia music scene. See where he's playing next.</p>
-        <a class="btn btn-primary" href="/shows.html" data-reveal data-delay="3">See upcoming shows</a>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ============ INSTAGRAM (Juicer) ============ -->
-    <section class="section-pad ig" id="instagram">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow centered" data-reveal>Follow Along</p>
-          <p class="handle" data-reveal data-delay="1"><a href="https://www.instagram.com/spencerscottsmith_music/" target="_blank" rel="noopener">@spencerscottsmith_music</a></p>
-        </div>
-        <!-- Juicer feed. Lazy-loaded by main.js via IntersectionObserver.
-             Paste your Juicer feed name into data-feed-id below; the script +
-             css inject only when this scrolls into view. -->
-        <div class="juicer-host"
-             data-reveal
-             data-lazy-script="https://assets.juicer.io/embed.js"
-             data-lazy-css="https://assets.juicer.io/embed.css">
-          <ul class="juicer-feed" data-feed-id="REPLACE_WITH_JUICER_FEED_ID" data-per="9" data-columns="3"></ul>
-          <noscript><p style="text-align:center;color:var(--muted)">See the latest on <a href="https://www.instagram.com/spencerscottsmith_music/">Instagram</a>.</p></noscript>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="f-brand">
-        <img src="/assets/img/brand/sss-logo.png" alt="Spencer Scott Smith" width="120" height="69" />
-        <p>Red clay music mixed with the Mississippi mud. Country, blues &amp; soul out of Woodstock, Georgia.</p>
       </div>
       <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="/#music">Music</a></li>
-          <li><a href="/#watch">Watch</a></li>
-          <li><a href="/shows.html">Upcoming Shows</a></li>
-          <li><a href="/contact.html">Contact &amp; Booking</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Listen &amp; Follow</h4>
-        <ul>
-          <li><a href="https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW" target="_blank" rel="noopener">Spotify</a></li>
-          <li><a href="https://music.apple.com/us/album/my-saving-grace-single/1675174889" target="_blank" rel="noopener">Apple Music</a></li>
-          <li><a href="https://www.youtube.com/channel/UCGu0g-Knj2tZ6KXf41QnIfw" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="https://www.instagram.com/spencerscottsmith_music/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com/spencerscottsmithmusic" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
+        <p class="lede">Recorded live and loud. Stream the latest, then come hear it the way it’s meant to be heard — in the room, with the lights down.</p>
+        <div class="stream-list">
+          <a class="stream" href="#"><span class="svc">Spotify</span><span class="go">Play →</span></a>
+          <a class="stream" href="#"><span class="svc">Apple Music</span><span class="go">Play →</span></a>
+          <a class="stream" href="#"><span class="svc">YouTube</span><span class="go">Watch →</span></a>
+          <a class="stream" href="#"><span class="svc">Bandcamp</span><span class="go">Buy →</span></a>
+        </div>
       </div>
     </div>
-    <div class="wrap footer-bottom">
-      <span>&copy; <span id="year">2026</span> Spencer Scott Smith. All rights reserved.</span>
-      <span class="credit">Woodstock, GA</span>
-    </div>
-  </footer>
+  </div>
+</section>
 
-  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
-  <script src="/assets/js/main.js" defer></script>
+<!-- SHOWS -->
+<section id="shows">
+  <div class="wrap reveal">
+    <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> On the road</span>
+    <h2 class="sec">Tour <em>Dates</em></h2>
+    <div id="show-list" style="margin-top:34px"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BAND -->
+<section id="band">
+  <div class="wrap reveal">
+    <div class="band-grid">
+      <div>
+        <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> The band</span>
+        <h2 class="sec">Red Clay <em>&amp; Roses</em></h2>
+        <p class="lede">Spencer Scott Smith &amp; The Cherokee Roses play red-clay Americana with the windows down — outlaw-country grit, roots-rock muscle, and songs about the road, the women on it, and the home at the end of it. Named for the wild rose that grows along Georgia’s backroads, the band turns a barroom into a revival and a Tuesday into a Saturday night.</p>
+        <p class="lede" style="margin-top:14px">Frontman Spencer Scott Smith came up the long way — performing since he was nine, a degree in music and 25 years on stages around the world, with a <strong style="color:var(--bone)">Georgia Songbirds Showdown</strong> win to his name — before he gathered the Roses around him.</p>
+        <ul class="members">
+          <li><span class="nm">Spencer Scott Smith</span><span class="rl">Lead Vocals · Guitar</span></li>
+          <li><span class="nm">Mark Grundhoefer</span><span class="rl">Guitar</span></li>
+          <li><span class="nm">J.T. Lee</span><span class="rl">Bass</span></li>
+          <li><span class="nm">Brian Henry</span><span class="rl">Drums</span></li>
+          <li><span class="nm">Eric Johnson</span><span class="rl new">Keys · newest rose</span></li>
+        </ul>
+      </div>
+      <div class="band-photos">
+        <img class="tall" src="assets/img/band/perf_200s.jpg" alt="Spencer Scott Smith">
+        <img src="assets/img/band/perf_110s.jpg" alt="The Cherokee Roses live">
+        <img src="assets/img/band/perf_150s.jpg" alt="On stage">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLO -->
+<section id="solo">
+  <div class="wrap reveal">
+    <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> Before the Roses</span>
+    <h2 class="sec">Spencer, <em>Solo</em></h2>
+    <p class="lede">Before the band, there were the songs — Georgia-born country, blues &amp; soul with a Mississippi twist. Spencer’s solo catalog is the work that started it all.</p>
+    <div class="solo-grid">
+      <div class="solo-single">
+        <div class="single-kick">Solo Single</div>
+        <div class="solo-title">My Saving Grace</div>
+        <div class="solo-meta">Country · blues · soul</div>
+        <div class="stream-list">
+          <a class="stream" href="https://music.apple.com/us/album/my-saving-grace-single/1675174889" target="_blank" rel="noopener"><span class="svc">Apple Music</span><span class="go">Play →</span></a>
+          <a class="stream" href="https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW" target="_blank" rel="noopener"><span class="svc">Spotify</span><span class="go">Play →</span></a>
+          <a class="stream" href="https://www.youtube.com/channel/UCGu0g-Knj2tZ6KXf41QnIfw" target="_blank" rel="noopener"><span class="svc">YouTube</span><span class="go">Watch →</span></a>
+        </div>
+      </div>
+      <div class="solo-aside">
+        <div class="accolade">
+          <span class="acc-pin">★ Georgia Songbirds Showdown</span>
+          <span class="acc-sub">Winner · #7 on the Weekly Top 10 Countdown</span>
+        </div>
+        <p class="pull">“Have I heard that song before?”</p>
+        <p class="solo-bio">Originals that drip with smooth melodies, wrapped in the songs you forgot you loved — from Otis Redding and Sam Cooke to John Mellencamp and The Black Crowes.</p>
+        <a class="btn btn-ghost" href="https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW" target="_blank" rel="noopener">Full catalog on Spotify ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WATCH -->
+<section id="watch">
+  <div class="wrap reveal">
+    <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> Watch</span>
+    <h2 class="sec">From the <em>Stage</em></h2>
+    <div class="vid-grid" style="margin-top:32px">
+      <a class="vthumb" href="https://www.instagram.com/reel/DYSPUouu46z/" target="_blank" rel="noopener"><img src="assets/img/band/perf_45s.jpg" alt=""><span class="vt-play"></span><span class="cap">Good Times &amp; Rock n’ Roll</span></a>
+      <a class="vthumb" href="#"><img src="assets/img/band/perf_110s.jpg" alt=""><span class="vt-play"></span><span class="cap">Live at MadLife — full set</span></a>
+      <a class="vthumb" href="#"><img src="assets/img/band/perf_250s.jpg" alt=""><span class="vt-play"></span><span class="cap">On the road — clips</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MERCH -->
+<section id="merch">
+  <div class="wrap reveal">
+    <span class="eyebrow"><svg class="rose"><use href="#rose"/></svg> Merch</span>
+    <h2 class="sec">Wear the <em>Roses</em></h2>
+    <p class="lede" style="margin-bottom:32px">Concepts in the works — wild-rose bandanas, tank-art prints, and the seal. Store opening soon.</p>
+    <div class="merch-grid">
+      <div class="merch-card">
+        <img src="assets/img/band/do-rag-mockup.jpeg" alt="Cherokee rose bandana concept">
+        <div class="body"><div class="mt">Wild-Rose Bandana</div><div class="ms">Black &amp; bone florals, Cherokee roses throughout.</div><span class="tag-soon">Coming Soon</span></div>
+      </div>
+      <div class="merch-card">
+        <img src="assets/img/band/SSS-CHEROKEE-ROSES-MOTORBIKE.jpeg" alt="Tank art print concept">
+        <div class="body"><div class="mt">Tank-Art Print</div><div class="ms">Hand-painted teal &amp; gold roses, ready to frame.</div><span class="tag-soon">Coming Soon</span></div>
+      </div>
+      <div class="merch-card">
+        <img src="assets/img/band/SSSCR.jpeg" alt="Monogram seal concept" style="object-fit:contain;background:#ece1c8;padding:24px">
+        <div class="body"><div class="mt">The Seal — Tee &amp; Cap</div><div class="ms">SSSCR monogram, stamped clean.</div><span class="tag-soon">Coming Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN / BOOKING -->
+<section id="join">
+  <div class="wrap reveal">
+    <div class="join-inner">
+      <span class="eyebrow" style="justify-content:center"><svg class="rose"><use href="#rose"/></svg> Stay on the trail</span>
+      <h2 class="sec">Join the <em>Mailing List</em></h2>
+      <p class="lede" style="margin:14px auto 0">New songs, new dates, first dibs on tickets. No spam — just the good stuff.</p>
+      <form class="signup" onsubmit="return false">
+        <input type="email" placeholder="your@email.com" aria-label="Email address">
+        <button class="btn btn-clay" type="submit">Sign Up</button>
+      </form>
+      <p class="book-line">Booking &amp; press: <a href="mailto:booking@spencerscottsmith.com">booking@spencerscottsmith.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg class="rose" style="color:var(--clay)"><use href="#rose"/></svg>
+  <p class="ftag">“Red clay music rolled in the Mississippi mud”</p>
+  <div class="fsoc">
+    <a href="https://www.instagram.com/spencerscottsmith_music">Instagram</a>
+    <a href="#">Spotify</a>
+    <a href="#">Apple Music</a>
+    <a href="#">YouTube</a>
+  </div>
+  <small>© 2026 Spencer Scott Smith &amp; The Cherokee Roses · Atlanta, GA</small>
+</footer>
+
+<script>
+// sticky nav
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ---- shows: in production this loads from shows.json ----
+const SHOWS=[
+  {mo:'JUL',day:'03',yr:'2026',venue:'529',loc:'Little Five Points · Atlanta, GA',note:'First show with Eric Johnson on keys',url:'#',cta:'Tickets',past:false},
+  {mo:'FEB',day:'12',yr:'2026',venue:'MadLife Stage & Studios',loc:'Woodstock, GA',note:'',url:'',cta:'Past Show',past:true},
+];
+document.getElementById('show-list').innerHTML=SHOWS.map(s=>`
+  <div class="show-row${s.past?' past':''}">
+    <div class="date-block"><div class="mo">${s.mo}</div><div class="day">${s.day}</div><div class="yr">${s.yr}</div></div>
+    <div class="show-info">
+      <div class="venue">${s.venue}</div>
+      <div class="loc">${s.loc}</div>
+      ${s.note?`<div class="note">${s.note}</div>`:''}
+    </div>
+    ${s.past?`<span class="show-cta done">${s.cta} ✓</span>`:`<a class="show-cta" href="${s.url}">${s.cta}</a>`}
+  </div>`).join('');
+</script>
 </body>
 </html>

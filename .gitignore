@@ -10,3 +10,10 @@ Thumbs.db
 
 # QA scratch
 _qa*.html
+_shot.html
+_verify.png
+
+# Large media / render artifacts — keep out of the deploy repo
+*.mp4
+poc-*.png
+*-preview.png
