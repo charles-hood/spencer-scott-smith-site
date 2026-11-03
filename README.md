@@ -1,124 +1,105 @@
-# Spencer Scott Smith — static site
+# Spencer Scott Smith & The Cherokee Roses, website
 
-A hand-authored static site (HTML + CSS + vanilla JS, **no build step, no framework**).
-Push to deploy. Theme: *"Stage Light & Red Clay"* — warm cinematic dark, amber accent,
-film-grain texture. Replaces the old WordPress/Euphony Pro site.
+Proof of concept, November 2026. Hand-authored static HTML, CSS and vanilla JavaScript.
+No build step, no framework. One site, band first, with Spencer's solo work as its own
+section. Research behind every decision is in the working folder
+(`~/projects/spencerscottsmith-and-thecherokeeroses/research-2026-11-02.md`), not in this
+public repo.
+
+Preview: https://spencerscottsmith.rockofpages.com (noindex). Production target:
+https://spencerscottsmith.com.
 
 ## Run locally
 
-No tooling required — it's static files. From the project root:
+```bash
+python3 -m http.server 8765
+# open http://localhost:8765
+```
+
+Paths are root-absolute (`/assets/...`, `/data/...`), so serve it, do not open the files
+directly.
+
+## Pages
+
+| File | What it is |
+|---|---|
+| `index.html` | Band front door: video hero, new single, next shows, watch, the band, catalog, solo door, mailing list |
+| `spinning-round-again.html` | Release landing page for the Nov 11, 2026 single, with countdown and pre-save button |
+| `shows.html` | All dates with band / solo filter, recent shows, booking blocks |
+| `solo.html` | Spencer solo: bio, what he does, solo dates, catalog, tip jar |
+| `epk.html` | Press kit: single, bios in three lengths, members, photos, video, quotes, 2026 shows, stage plot, contacts |
+| `contact.html` | Booking form and direct emails |
+| `404.html` | Not found |
+
+`assets/css/site.css` is the whole design system. `assets/js/site.js` does the nav, the
+click-to-load video embeds, the show list, the catalog strip, the forms and the
+`MusicEvent` structured data. `data/shows.json` and `data/music.json` are the only files
+the band edits week to week.
+
+## Editing shows and music
+
+**Shows:** add an object to `data/shows.json`. Fields: `date` (ISO), `time`, `who`
+(`band`, `solo` or `duo`), `venue`, `city`, `note`, `url` (the venue's own ticket link, or
+empty for free shows). Past dates move to Recent on their own. The home page shows the next
+four band dates; `solo.html` shows solo and duo dates.
+
+Once a Bandsintown for Artists profile exists, the official widget goes into `shows.html`
+where the HTML comment says so, and this file becomes the fallback.
+
+**Music:** add an object to `data/music.json`. For an unreleased single set `next: true`
+and point `page` at its landing page; when it is out, remove `next` and add the Spotify,
+Apple and YouTube links.
+
+## Placeholders to replace before launch
+
+Search the project for `YOUR_FORM_ID` and the word `placeholder`, and for the visible
+`todo` pills on the EPK and contact pages. The list, in priority order:
+
+1. Pre-save link for Spinning 'Round Again (DistroKid HyperFollow or Feature.fm) in
+   `spinning-round-again.html` and `data/music.json`.
+2. Single artwork: replace the monogram in the release page and the home page `.art` block.
+3. Formspree form id in `index.html`, `spinning-round-again.html` and `contact.html`.
+4. `booking@` and `press@` aliases on spencerscottsmith.com, or swap in the address Spencer
+   wants published.
+5. Photos: the `assets/img/live/` stills are frames from the Feb 12 MadLife reel. Replace
+   with the new photo set and update the EPK download links.
+6. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
+7. Confirm the Georgia Songbirds placement and the MadLife live album status before
+   removing those `todo` pills.
+8. Remove the `.poc` strip from every page.
+
+## Assumptions made in this proof of concept
+
+- One site at spencerscottsmith.com, band first. A band domain, if bought, redirects here.
+- Every release is credited on streaming to the artist "Spencer Scott Smith", so all
+  streaming links point at that profile.
+- Hometown is Woodstock, Georgia. Tagline is the band's "rolled in" version.
+- The hero loop is 12 seconds of the MadLife footage, cropped to remove the burned-in
+  lyric captions, muted, about 1.4 MB. It does not play when the visitor prefers
+  reduced motion; the poster shows instead.
+- Fonts: Big Shoulders Display (headings) and Spectral (body), loaded from Google Fonts.
+  Self-host later if the third-party request matters.
+- Colours come from the letterpress logo: warm black, bone, burnt orange. Teal from the
+  tank-art concept appears once, on the solo door.
+
+## Deploy
+
+Push to `main`, then on the droplet:
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+ssh -i ~/.ssh/reverse-proxy-key root@167.71.24.36 'cd /var/www/spencer-scott-smith-site && git pull'
 ```
 
-(Any static server works. Use a server rather than opening the files directly, so the
-root-absolute `/assets/...` paths and the embeds resolve correctly.)
+Caddy serves it at spencerscottsmith.rockofpages.com with `X-Robots-Tag: noindex`. The
+runbook is in `~/Projects/reverse-proxy/CLAUDE.md`.
 
-## ⚠️ Before going live — fill in 3 placeholders
+## Old WordPress URLs to redirect at launch
 
-Search the project for `REPLACE_WITH` / `YOUR_FORM_ID` and swap in real values:
-
-| Placeholder | File | What to paste |
-|---|---|---|
-| `REPLACE_WITH_JUICER_FEED_ID` | `index.html` | Your Juicer feed name (from the Juicer dashboard → *Add Feed* → the feed slug). |
-| `REPLACE_WITH_BANDSINTOWN_ARTIST_NAME_OR_ID` and `REPLACE_WITH_BANDSINTOWN_ARTIST_ID` | `shows.html` | From **artist.bandsintown.com → Widgets → Copy Code** (see below). |
-| `YOUR_FORM_ID` | `contact.html` | Your Formspree form id, e.g. `xyzabcd` → `https://formspree.io/f/xyzabcd`. |
-
-Until each is set, that section shows a graceful placeholder/fallback (the form falls back
-to a normal POST, the widgets show a loading/fallback state). Nothing breaks.
-
-## How to edit common things
-
-### Upcoming shows (Bandsintown)
-Shows are **not** stored in this repo — they live in your **Bandsintown for Artists**
-account and the widget pulls them live. To wire it up:
-
-1. Claim/confirm the artist profile at **artist.bandsintown.com**.
-2. Go to **Widgets**, style if you like, click **Copy Code**.
-3. In `shows.html`, replace the `<a class="bit-widget-initializer" …>` block inside
-   `<div class="bit-host">` with the anchor from your copied code. **Keep the
-   surrounding `<div class="bit-host" data-lazy-script="…">`** — that's what lazy-loads
-   the script (deferred, so it doesn't block first paint) and styles it to the theme.
-   **Do not** also paste Bandsintown's `<script>` tag; the `data-lazy-script` handles it.
-4. Update the two `REPLACE_WITH_BANDSINTOWN_ARTIST_ID` values (the widget's artist
-   name/id, and the `bandsintown.com/a/<id>` fallback link).
-
-After that, you never touch the code to change shows — add/edit dates in Bandsintown.
-
-### Contact form (Formspree)
-1. Create a form at **formspree.io**, set the destination email there.
-2. Put its id into the `action="https://formspree.io/f/YOUR_FORM_ID"` in `contact.html`.
-3. (Optional) enable reCAPTCHA in the Formspree dashboard. A honeypot field is already
-   included for basic bot filtering.
-
-### Instagram feed (Juicer)
-Set `data-feed-id` on the `<ul class="juicer-feed" …>` in `index.html`. The Juicer
-script + CSS are lazy-loaded by `assets/js/main.js` when the section scrolls into view.
-To restyle, adjust the `.juicer-host …` overrides in `assets/css/styles.css`.
-
-### Swapping images
-Drop replacements in `assets/img/photos/` (or `assets/img/brand/`) and point the markup
-at them. Keep both a `.webp` and a `.jpg` fallback. To re-optimize a new source photo:
-
-```bash
-# hero photo (portrait-orientation; fills the right half of the split hero)
-magick source.jpg -strip -resize 1200x -quality 64 assets/img/photos/hero-portrait-lg.webp
-magick source.jpg -strip -resize 1200x -quality 66 assets/img/photos/hero-portrait-lg.jpg
-magick source.jpg -strip -resize 820x  -quality 62 assets/img/photos/hero-portrait-sm.webp
-```
-
-The hero is a **split layout**: type on the dark left, this photo on the right (it also
-backs the "Shows" teaser, darkened). Use a strong portrait/3:4 image with the subject
-lower-center. Image references live in the `<picture>` blocks in `index.html`; update
-`width`/`height` on the `<img>` to match the new aspect ratio (prevents layout shift).
-
-### Music / video embeds
-All embeds use a **facade** (a click-to-load poster) so they don't slow first paint.
-To change one, edit the `data-id` on the `<button class="facade" …>`:
-- YouTube: `data-embed="youtube" data-id="VIDEO_ID"`
-- Spotify: `data-embed="spotify" data-id="album/ID"` (or `artist/ID`)
-- Apple Music: `data-embed="apple" data-id="us/album/slug/ID"`
-
-### Edit text
-Page copy is plain HTML in `index.html`, `shows.html`, `contact.html`. Footer + nav are
-duplicated across the three pages (no build step) — if you change a nav/footer link,
-update it in all three.
-
-## Repo structure
-
-```
-index.html      Home — hero, bio, music, video, shows teaser, Instagram
-shows.html      Bandsintown widget page
-contact.html    Formspree contact/booking form
-404.html        Not-found page
-assets/css/     styles.css (the whole design system)
-assets/js/      main.js (nav, facades, reveals, lazy-loaded third-party scripts)
-assets/img/     brand/ (logo, favicons, OG image) + photos/ (optimized webp+jpg)
-sitemap.xml     hand-maintained
-robots.txt
-_raw_mirror/    read-only capture of the old WordPress site (git-ignored, not deployed)
-PLAN.md         Phase-1 migration analysis + decisions
-```
-
-## Old → new URL map (for redirects in your hosting layer)
-
-| Old (WordPress) | New | Action |
-|---|---|---|
-| `/` | `/` | unchanged |
-| `/upcoming-shows/` | `/shows.html` | 301 redirect |
-| `/contact-2/` | `/contact.html` | 301 redirect |
-| `/my-saving-grace/` | `/#music` | 301 (single now featured on home) |
-| `/official-music-video/` | `/#watch` | 301 |
-| `/epk/`, `/merch/`, `/instagram/`, `/gallery-section-page/`, `/playlist/`, and all theme-demo / WooCommerce / event-calendar URLs | — | let them 404/410 (never real content) |
-
-## Notes
-- **Domain/canonical:** all canonical/OG URLs use `https://spencerscottsmith.com` (non-www).
-  If you choose `www`, find-and-replace the canonical + `og:url` tags and `sitemap.xml`.
-- **Performance:** images are WebP (+JPEG fallback), embeds are facade/lazy-loaded, scripts
-  are deferred, no jQuery. Third-party scripts (Juicer, Bandsintown) load only on scroll.
-- **Accessibility:** keyboard-navigable nav, visible focus rings, skip link, alt text, and
-  `prefers-reduced-motion` is respected for all motion/glow.
-- **Fonts:** Fraunces (display) + Hanken Grotesk (body) + Mrs Saint Delafield (script),
-  loaded from Google Fonts. Self-host later if you want to drop the third-party request.
+| Old | New |
+|---|---|
+| `/upcoming-shows/` | `/shows.html` |
+| `/contact-2/` | `/contact.html` |
+| `/my-saving-grace/` | `/#music` |
+| `/official-music-video/` | `/#watch` |
+| `/epk/` | `/epk.html` |
+| everything else from the theme demo and the dormant store | 404 |

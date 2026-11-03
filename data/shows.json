@@ -1,0 +1,77 @@
+{
+  "_note": "One entry per date. who: band | solo | duo. Dates ISO. url is the venue's own ticket link (Eventbrite for MadLife, BigTickets for 529). Past shows stay in the file; the site sorts them into Recent. Source for the 2026 entries: research-2026-11-02.md.",
+  "shows": [
+    {
+      "date": "2026-10-30",
+      "time": "7:30 PM",
+      "who": "solo",
+      "venue": "The Block Theater at You42 Studios",
+      "city": "Roswell, GA",
+      "note": "Local Artist Showcase with Nikoletta Holt",
+      "url": "https://www.eventbrite.com/e/local-artist-showcase-nikoletta-holt-x-spencer-scott-smith-tickets-2003441482405"
+    },
+    {
+      "date": "2026-09-26",
+      "time": "4:00 PM",
+      "who": "band",
+      "venue": "You42 Studios, Bourbon BBQ & Bluegrass Festival",
+      "city": "Roswell, GA",
+      "note": "With Seth Cronic and the Jonah Cooper Band",
+      "url": ""
+    },
+    {
+      "date": "2026-09-05",
+      "time": "5:00 PM",
+      "who": "band",
+      "venue": "MadLife Stage & Studios",
+      "city": "Woodstock, GA",
+      "note": "With Mark Grundhoefer. Free entry.",
+      "url": ""
+    },
+    {
+      "date": "2026-08-28",
+      "time": "7:00 PM",
+      "who": "solo",
+      "venue": "The Mill on Etowah, Friday Night Live",
+      "city": "Canton, GA",
+      "note": "Free entry",
+      "url": ""
+    },
+    {
+      "date": "2026-08-01",
+      "time": "5:00 PM",
+      "who": "band",
+      "venue": "MadLife Stage & Studios, patio",
+      "city": "Woodstock, GA",
+      "note": "With Mark Grundhoefer. Free entry.",
+      "url": ""
+    },
+    {
+      "date": "2026-07-03",
+      "time": "8:00 PM",
+      "who": "band",
+      "venue": "529",
+      "city": "East Atlanta Village, Atlanta, GA",
+      "note": "With Hydra Fighter and Tugboat Willie. First show with Eric Johnson on keys.",
+      "url": "https://www.bigtickets.com/e/529/spencer-scott-smith-the-cherokee-roses/"
+    },
+    {
+      "date": "2026-05-16",
+      "time": "6:00 PM",
+      "who": "duo",
+      "venue": "Two Birds Taphouse",
+      "city": "Marietta, GA",
+      "note": "With Mark Grundhoefer",
+      "url": ""
+    },
+    {
+      "date": "2026-02-12",
+      "time": "7:30 PM",
+      "who": "band",
+      "venue": "MadLife Stage & Studios, MadLife Nights",
+      "city": "Woodstock, GA",
+      "note": "Video shoot and live recording, with Them Mixon Boys",
+      "url": "https://www.eventbrite.com/e/madlife-nights-video-shoot-feat-spencer-scott-smith-them-mixon-boys-tickets-1979252644941"
+    }
+  ]
+}
