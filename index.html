@@ -12,13 +12,17 @@
 <meta property="og:url" content="https://spencerscottsmith.com/">
 <meta property="og:image" content="https://spencerscottsmith.com/assets/img/releases/og-spinning-round-again.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/img/brand/favicon-32.png?v=20261102b" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png?v=20261102b">
+<link rel="icon" href="/assets/img/brand/favicon-32.png?v=20261103a" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png?v=20261103a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/assets/img/live/hero-poster.webp" type="image/webp">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261102b">
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/assets/img/brand/logotype.png?v=20261103a">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261103a">
+<script>
+/* Splash shows once per session. Skip it for deep links, for ?nosplash, and for repeat views. */
+(function(){try{var h=location.hash,q=location.search;if(h||/nosplash/.test(q)||sessionStorage.getItem('sss-splash')){document.documentElement.classList.add('no-splash')}else{document.documentElement.classList.add('splash-on')}}catch(e){document.documentElement.classList.add('no-splash')}})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,7 +30,8 @@
   "name": "Spencer Scott Smith & The Cherokee Roses",
   "alternateName": "The Cherokee Roses",
   "url": "https://spencerscottsmith.com/",
-  "image": "https://spencerscottsmith.com/assets/img/live/hero-poster.jpg",
+  "image": "https://spencerscottsmith.com/assets/img/photos/band-stage.jpg",
+  "logo": "https://spencerscottsmith.com/assets/img/brand/badge.png",
   "genre": ["Americana", "Country", "Rock"],
   "foundingLocation": { "@type": "Place", "name": "Woodstock, Georgia" },
   "member": [
@@ -49,17 +54,38 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="rose" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"><path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z"/><path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(72 50 50)"/><path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(144 50 50)"/><path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(216 50 50)"/><path d="M50 50 C 38 30, 38 14, 50 6 C 62 14, 62 30, 50 50 Z" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="7" fill="currentColor"/></g></symbol></svg>
+
+<div id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-title">
+  <div class="in">
+    <div class="cover">
+      <picture><source srcset="/assets/img/releases/spinning-round-again.webp" type="image/webp"><img src="/assets/img/releases/spinning-round-again.jpg" alt="Spinning 'Round Again single cover: the title in red block letters over handwritten lyric fragments, a barn, a windmill and a ranch gate marked RR" width="1200" height="1200" fetchpriority="high"></picture>
+    </div>
+    <div>
+      <img class="badge" src="/assets/img/brand/badge.png?v=20261103a" alt="" width="800" height="795">
+      <div class="when" data-when>New single, out November 11</div>
+      <h1 id="splash-title">Spinning 'Round Again</h1>
+      <p>The first full-band single from Spencer Scott Smith &amp; The Cherokee Roses. Pre-save it and it lands in your library the morning it drops.</p>
+      <div class="count num" data-count aria-live="polite"></div>
+      <div class="ctas">
+        <a class="btn btn-brick" data-presave href="https://distrokid.com/hyperfollow/spencerscottsmith/spinning-round-again" target="_blank" rel="noopener">Pre-save the single</a>
+      </div>
+      <button class="enter" type="button" data-enter>Enter the site</button>
+    </div>
+  </div>
+</div>
+
+<div class="frame" aria-hidden="true"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i></div>
 
 <nav class="nav" id="nav" aria-label="Main">
-  <a class="brand" href="/"><svg aria-hidden="true"><use href="#rose"/></svg>SSS &amp; The Cherokee Roses</a>
+  <a class="brand" href="/"><img src="/assets/img/brand/badge.png?v=20261103a" alt="" width="800" height="795"><span>SSS &amp; The Cherokee Roses</span></a>
   <div class="links" id="menu">
     <ul>
-      <li><a href="/#music">Music</a></li>
+      <li><a href="/#single">The single</a></li>
       <li><a href="/shows.html">Shows</a></li>
-      <li><a href="/#band">The band</a></li>
+      <li><a href="/#roses">The Cherokee Roses</a></li>
+      <li><a href="/#music">Music</a></li>
       <li><a href="/solo.html">Spencer solo</a></li>
-      <li><a href="/epk.html">EPK</a></li>
+      <li><a href="/epk.html">Press kit</a></li>
     </ul>
     <a class="btn btn-primary book" href="/contact.html">Book the band</a>
   </div>
@@ -77,15 +103,15 @@
     </video>
     <picture>
       <source srcset="/assets/img/live/hero-poster.webp" type="image/webp">
-      <img src="/assets/img/live/hero-poster.jpg" alt="" width="1280" height="602" fetchpriority="high" style="position:absolute;inset:0;z-index:-1">
+      <img src="/assets/img/live/hero-poster.jpg" alt="" width="1280" height="602" style="position:absolute;inset:0;z-index:-1">
     </picture>
   </div>
   <div class="scrim"></div>
   <div class="wrap">
-    <h1 class="in d1">Spencer Scott Smith <span class="amp">&amp;</span> The Cherokee Roses</h1>
+    <h1 class="in d1"><img src="/assets/img/brand/logotype.png?v=20261103a" alt="Spencer Scott Smith & The Cherokee Roses" width="1600" height="890" fetchpriority="high"></h1>
     <p class="tag in d2">Red clay music rolled in the Mississippi mud. Original Americana, country and rock n' roll out of Woodstock, Georgia.</p>
     <div class="ctas in d3">
-      <a class="btn btn-primary" href="/spinning-round-again.html">Pre-save the new single</a>
+      <a class="btn btn-primary" href="/spinning-round-again.html">Spinning 'Round Again, out Nov 11</a>
       <a class="btn btn-ghost on-photo" href="/shows.html">Shows</a>
     </div>
   </div>
@@ -94,15 +120,19 @@
 <section id="single">
   <div class="wrap release">
     <div class="art">
-      <picture><source srcset="/assets/img/releases/spinning-round-again.webp" type="image/webp"><img src="/assets/img/releases/spinning-round-again.jpg" alt="Spinning 'Round Again single cover: the song title in red block letters over handwritten lyric fragments, a barn, a windmill and a ranch gate marked RR" width="1200" height="1200" loading="lazy"></picture>
+      <picture><source srcset="/assets/img/releases/spinning-round-again.webp" type="image/webp"><img src="/assets/img/releases/spinning-round-again.jpg" alt="Spinning 'Round Again single cover: the title in red block letters over handwritten lyric fragments, a barn, a windmill and a ranch gate marked RR" width="1200" height="1200" loading="lazy"></picture>
     </div>
     <div>
       <div class="when">Out Tuesday, November 11, 2026</div>
       <h2>Spinning 'Round Again</h2>
-      <p class="lede">The first full-band single, cut at Rhythm Ranch Recording in Alpharetta. Country soul with the Roses behind it. Pre-save it and it lands in your library the morning it drops.</p>
+      <p class="lede">The first full-band single, cut at Rhythm Ranch Recording in Alpharetta. Country soul with the Roses behind it, pressed on a 45 and headed for the new arrivals bin. Pre-save it and it lands in your library the morning it drops.</p>
       <div class="ctas">
-        <a class="btn btn-primary" href="/spinning-round-again.html">Pre-save on Spotify and Apple</a>
-        <a class="btn btn-ghost" href="https://www.instagram.com/reel/Ddb0YsOhO4Q/" target="_blank" rel="noopener">Hear the acoustic demo</a>
+        <a class="btn btn-brick" href="https://distrokid.com/hyperfollow/spencerscottsmith/spinning-round-again" target="_blank" rel="noopener">Pre-save on Spotify and Apple</a>
+        <a class="btn btn-ghost" href="/spinning-round-again.html">About the single</a>
+      </div>
+      <div class="side">
+        <picture><source srcset="/assets/img/releases/vinyl-bin.webp" type="image/webp"><img src="/assets/img/releases/vinyl-bin.jpg" alt="The Spinning 'Round Again 45 in a record shop's new arrivals bin" width="1000" height="1000" loading="lazy"></picture>
+        <img src="/assets/img/releases/spinning-round-again-label.jpg" alt="The 45 label: Rhythm Ranch Recording, 45 RPM, side A, 5:24" width="800" height="800" loading="lazy">
       </div>
     </div>
   </div>
@@ -117,7 +147,11 @@
       <a class="btn-link" href="/shows.html">All dates, band and solo</a>
     </div>
     <div data-shows="upcoming" data-filter="band" data-limit="4"></div>
-    <p class="muted" style="margin-top:22px">Want the Roses in your room? <a class="btn-link" href="/contact.html">Book the band</a></p>
+    <div class="follow">
+      <span class="lbl">Get told when a date is added:</span>
+      <a class="btn btn-ghost" href="https://www.songkick.com/artists/10383976-spencer-scott-smith" target="_blank" rel="noopener">Track on Songkick</a>
+      <span class="todo">Bandsintown link pending</span>
+    </div>
   </div>
 </section>
 
@@ -147,29 +181,29 @@
 
 <div class="rule"></div>
 
-<section id="band">
+<section id="roses">
   <div class="wrap">
-    <h2>The band</h2>
+    <h2>The Cherokee Roses</h2>
     <div class="band-photo">
-      <picture><source srcset="/assets/img/live/live-30.webp" type="image/webp"><img src="/assets/img/live/live-30.jpg" alt="Spencer Scott Smith & The Cherokee Roses on the MadLife stage" width="1200" height="564" loading="lazy"></picture>
+      <picture><source srcset="/assets/img/photos/band-stage.webp" type="image/webp"><img src="/assets/img/photos/band-stage.jpg" alt="The Cherokee Roses lined up on stage under red and purple light, guitars up" width="1800" height="1350" loading="lazy"></picture>
     </div>
     <div class="band-cols">
       <div>
         <p class="lede">Named for the wild rose that grows along Georgia's backroads, the Cherokee Roses are the full-band version of what Spencer has been doing solo for twenty-five years: country with an edge, peppered with blues, R&amp;B and a big helping of soul.</p>
         <p>Spencer was raised on the red clay river banks of North Georgia and has been performing since he was nine. He plays around two hundred nights a year, most of them solo on patios and in listening rooms across the north metro. The Roses are for the nights that call for drums.</p>
-        <p>They made their full-band debut at MadLife Stage &amp; Studios in Woodstock in February 2026, recorded live for a TV episode and a live album, then played 529 in East Atlanta over the Fourth of July weekend.</p>
       </div>
-      <ul class="members" aria-label="Band members">
-        <li><span class="n">Spencer Scott Smith</span><span class="r">Lead vocals, acoustic guitar</span></li>
-        <li><span class="n">Mark Grundhoefer</span><span class="r">Guitar, vocals</span></li>
-        <li><span class="n">J.T. Lee</span><span class="r">Bass</span></li>
-        <li><span class="n">Brian Henry</span><span class="r">Drums</span></li>
-        <li><span class="n">Eric Johnson</span><span class="r">Keys, vocals</span></li>
-      </ul>
+      <div>
+        <p>They made their full-band debut at MadLife Stage &amp; Studios in Woodstock in February 2026, recorded live for a TV episode and a live album, then played 529 in East Atlanta over the Fourth of July weekend and the You42 festival in Roswell in September. The first studio single, Spinning 'Round Again, is out November 11.</p>
+      </div>
     </div>
-    <div class="logo-card">
-      <picture><source srcset="/assets/img/brand/logo-wordmark.webp" type="image/webp"><img src="/assets/img/brand/logo-wordmark.jpg" alt="Band logo: Spencer Scott Smith & The Cherokee Roses hand-lettered in cream on black over three Cherokee roses and two snakes" width="1600" height="1600" loading="lazy" style="max-height:620px;object-fit:cover;width:100%"></picture>
-    </div>
+    <ul class="members" aria-label="Band members">
+      <li><div class="ph"><picture><source srcset="/assets/img/photos/spencer-bw.webp" type="image/webp"><img src="/assets/img/photos/spencer-bw.jpg" alt="Spencer Scott Smith, black and white portrait with acoustic guitar" width="1000" height="1333" loading="lazy"></picture></div><span class="n">Spencer Scott Smith</span><span class="r">Lead vocals, acoustic guitar</span></li>
+      <li><div class="ph soon"><img src="/assets/img/brand/rose.png" alt="" width="900" height="921" loading="lazy"></div><span class="n">Mark Grundhoefer</span><span class="r">Guitar, vocals</span></li>
+      <li><div class="ph soon"><img src="/assets/img/brand/rose.png" alt="" width="900" height="921" loading="lazy"></div><span class="n">J.T. Lee</span><span class="r">Bass</span></li>
+      <li><div class="ph soon"><img src="/assets/img/brand/rose.png" alt="" width="900" height="921" loading="lazy"></div><span class="n">Brian Henry</span><span class="r">Drums</span></li>
+      <li><div class="ph soon"><img src="/assets/img/brand/rose.png" alt="" width="900" height="921" loading="lazy"></div><span class="n">Eric Johnson</span><span class="r">Keys, vocals</span></li>
+    </ul>
+    <p class="hint" style="margin-top:14px">Headshots and short bios for the Roses are on the way. <span class="todo">Pending from Spencer</span></p>
   </div>
 </section>
 
@@ -192,12 +226,27 @@
 <section class="solo-door">
   <div class="wrap">
     <div class="copy">
+      <img class="sig" src="/assets/img/brand/solo-signature.png" alt="Spencer Scott Smith, signature logo" width="703" height="398" loading="lazy">
       <h2>Spencer, solo</h2>
       <p class="lede">An acoustic guitar, a voice, and a setlist that runs from his own songs to the ones you forgot you loved. Breweries, patios, listening rooms, private events, and a weekly open mic. Two hundred nights a year.</p>
       <div class="ctas" style="margin-top:26px"><a class="btn btn-ghost" href="/solo.html">Solo dates and booking</a></div>
     </div>
     <div class="portrait">
-      <picture><source srcset="/assets/img/photos/hero-portrait-lg.webp" type="image/webp"><img src="/assets/img/photos/hero-portrait-lg.jpg" alt="Spencer Scott Smith with his acoustic guitar under a bare tree at sunset" width="1200" height="1800" loading="lazy"></picture>
+      <picture><source srcset="/assets/img/photos/spencer-tele.webp" type="image/webp"><img src="/assets/img/photos/spencer-tele.jpg" alt="Spencer Scott Smith singing outdoors with a Telecaster, sunglasses on, string lights behind him" width="1600" height="1500" loading="lazy"></picture>
+    </div>
+  </div>
+</section>
+
+<section class="hire" id="hire">
+  <div class="wrap">
+    <div class="skel"><img src="/assets/img/brand/skeleton.png" alt="The band's skeleton mascot in a trucker cap, throwing the horns" width="900" height="890" loading="lazy"></div>
+    <div class="slogan">
+      <img src="/assets/img/brand/hire-live.png" alt="Support live music. Hire live musicians." width="1200" height="1510" loading="lazy">
+      <p>Full band for your festival, patio or private party. Spencer solo or duo for the nights that call for something quieter. He answers every message himself.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/contact.html">Book the band</a>
+        <a class="btn btn-ghost" href="/epk.html">Press kit</a>
+      </div>
     </div>
   </div>
 </section>
@@ -217,7 +266,6 @@
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       </form>
       <div class="form-ok" role="status">You're on the list. Watch for Spinning 'Round Again on November 11.</div>
-      <p class="book">Booking and press: <a href="/contact.html">contact page</a></p>
     </div>
   </div>
 </section>
@@ -226,6 +274,7 @@
 <footer>
   <div class="wrap">
     <div>
+      <img class="cluster" src="/assets/img/brand/cluster.png" alt="" width="1000" height="366" loading="lazy">
       <div class="fb">Spencer Scott Smith &amp; The Cherokee Roses</div>
       <div class="ft">Red clay music rolled in the Mississippi mud.</div>
     </div>
@@ -240,7 +289,7 @@
     <small>© 2026 Spencer Scott Smith. Woodstock, Georgia.</small>
   </div>
 </footer>
-<div class="poc" role="note">Proof of concept, November 2026. Live footage stands in for band photos. Placeholders are marked.</div>
-<script src="/assets/js/site.js?v=20261102b" defer></script>
+<div class="poc" role="note">Proof of concept, third pass, November 2026. Headshots, bios and the form id are still to come.</div>
+<script src="/assets/js/site.js?v=20261103a" defer></script>
 </body>
 </html>

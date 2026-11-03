@@ -19,6 +19,34 @@
     });
   }
 
+  /* ---- splash: the single, once per session ---- */
+  const splash = document.getElementById('splash');
+  if (splash) {
+    const root = document.documentElement;
+    const close = () => {
+      root.classList.remove('splash-on'); root.classList.add('no-splash');
+      try { sessionStorage.setItem('sss-splash', '1'); } catch (e) {}
+      const first = document.querySelector('.hero .ctas a'); if (first) first.focus({ preventScroll: true });
+    };
+    splash.querySelector('[data-enter]').addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && root.classList.contains('splash-on')) close(); });
+    const release = new Date(2026, 10, 11);
+    const when = splash.querySelector('[data-when]'), count = splash.querySelector('[data-count]'), pre = splash.querySelector('[data-presave]');
+    const tick = () => {
+      const ms = release - new Date();
+      if (ms <= 0) {
+        when.textContent = 'New single, out now';
+        count.innerHTML = '';
+        pre.textContent = 'Listen now';
+        return;
+      }
+      const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
+      count.innerHTML = `<div><div class="n">${d}</div><div class="l">days</div></div><div><div class="n">${h}</div><div class="l">hours</div></div><div><div class="n">${m}</div><div class="l">min</div></div>`;
+    };
+    tick(); setInterval(tick, 30000);
+    if (root.classList.contains('splash-on')) { const b = splash.querySelector('[data-enter]'); if (b) b.focus({ preventScroll: true }); }
+  }
+
   /* ---- hero video: only when motion is allowed ---- */
   const hv = document.querySelector('.hero video');
   if (hv) {
@@ -140,7 +168,7 @@
     catch (e) { strip.innerHTML = '<div class="empty"><strong>Catalog did not load.</strong> Everything is on Spotify under Spencer Scott Smith.</div>'; return; }
     strip.innerHTML = data.releases.map(r => {
       const links = r.next
-        ? `<a href="${r.page}">Pre-save</a>`
+        ? `<a href="${r.presave || r.page}" target="_blank" rel="noopener">Pre-save</a><a href="${r.page}">About</a>`
         : [r.spotify && `<a href="${r.spotify}" target="_blank" rel="noopener">Spotify</a>`,
            r.apple && `<a href="${r.apple}" target="_blank" rel="noopener">Apple</a>`,
            r.youtube && `<a href="${r.youtube}" target="_blank" rel="noopener">YouTube</a>`].filter(Boolean).join('');
