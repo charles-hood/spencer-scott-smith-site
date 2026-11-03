@@ -57,7 +57,8 @@ Search the project for `YOUR_FORM_ID` and the word `placeholder`, and for the vi
 
 1. Pre-save link for Spinning 'Round Again (DistroKid HyperFollow or Feature.fm) in
    `spinning-round-again.html` and `data/music.json`.
-2. Single artwork: replace the monogram in the release page and the home page `.art` block.
+2. Single artwork: done (delivered 2026-11-02, in `assets/img/releases/`). Logos: done
+   (`assets/img/brand/logo-wordmark.*`, `logo-badge.*`; favicons cut from the badge).
 3. Formspree form id in `index.html`, `spinning-round-again.html` and `contact.html`.
 4. `booking@` and `press@` aliases on spencerscottsmith.com, or swap in the address Spencer
    wants published.
