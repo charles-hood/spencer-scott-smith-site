@@ -52,22 +52,23 @@ Apple and YouTube links.
 
 ## Placeholders to replace before launch
 
-Search the project for `YOUR_FORM_ID` and the word `placeholder`, and for the visible
-`todo` pills on the EPK and contact pages. The list, in priority order:
+Search the project for `YOUR_FORM_ID` and the visible `todo` pills. The list, in
+priority order:
 
-1. Pre-save link for Spinning 'Round Again (DistroKid HyperFollow or Feature.fm) in
-   `spinning-round-again.html` and `data/music.json`.
-2. Single artwork: done (delivered 2026-11-02, in `assets/img/releases/`). Logos: done
-   (`assets/img/brand/logo-wordmark.*`, `logo-badge.*`; favicons cut from the badge).
-3. Formspree form id in `index.html`, `spinning-round-again.html` and `contact.html`.
-4. `booking@` and `press@` aliases on spencerscottsmith.com, or swap in the address Spencer
-   wants published.
-5. Photos: the `assets/img/live/` stills are frames from the Feb 12 MadLife reel. Replace
-   with the new photo set and update the EPK download links.
-6. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
-7. Confirm the Georgia Songbirds placement and the MadLife live album status before
+1. Formspree form id in `index.html`, `spinning-round-again.html` and `contact.html`.
+2. Headshots and short bios for the four Roses: replace the rose placeholders in the
+   member grid on `index.html` and the member list on `epk.html`.
+3. Bandsintown artist URL next to the Songkick link on `index.html` and `shows.html`.
+4. `booking@` and `press@` aliases on spencerscottsmith.com, or the address Spencer wants.
+5. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
+6. Confirm the Georgia Songbirds placement and the MadLife live album status before
    removing those `todo` pills.
+7. The splash on `index.html` is for the single cycle. After November 11 it reads
+   "out now"; remove it, or repoint it at the next release, when that cycle ends.
 8. Remove the `.poc` strip from every page.
+
+Done: pre-save link (HyperFollow), single artwork and 45 label, logo kit as transparent
+PNGs, solo signature logo from the vector file, real band photos.
 
 ## Assumptions made in this proof of concept
 
@@ -78,10 +79,15 @@ Search the project for `YOUR_FORM_ID` and the word `placeholder`, and for the vi
 - The hero loop is 12 seconds of the MadLife footage, cropped to remove the burned-in
   lyric captions, muted, about 1.4 MB. It does not play when the visitor prefers
   reduced motion; the poster shows instead.
-- Fonts: Big Shoulders Display (headings) and Spectral (body), loaded from Google Fonts.
+- Fonts: League Gothic (headings, nav, buttons) and Spectral (body), from Google Fonts.
   Self-host later if the third-party request matters.
-- Colours come from the letterpress logo: warm black, bone, burnt orange. Teal from the
-  tank-art concept appears once, on the solo door.
+- Colours come from the November 2026 logo kit: ink, bone, burnt mustard (the one
+  interactive accent), lichen grey, and brick red kept for the single.
+- The bandanna frame is an inline SVG border-image plus two corner cutouts from
+  Spencer's bandanna photo (`assets/img/brand/bandanna-corner.png`); the cotton ground
+  is two repeating diagonal gradients on `body`. Both are decorative and ignore pointer
+  events.
+- The splash shows once per session and never for deep links or `?nosplash`.
 
 ## Deploy
 
