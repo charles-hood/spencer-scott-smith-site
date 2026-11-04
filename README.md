@@ -37,6 +37,8 @@ click-to-load video embeds, the show list, the catalog strip, the forms and the
 the band edits week to week.
 
 `gallery.html` holds the photo gallery (Roses and Rosebuds sections, lightbox).
+`sponsors.html` lists the sponsors with their logos (`assets/img/sponsors/`, recoloured to bone)
+and outbound links; add a sponsor by copying one `<article>` block.
 
 ## Editing shows and music
 
