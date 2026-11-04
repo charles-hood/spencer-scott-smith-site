@@ -353,6 +353,7 @@ footer .cluster{width:220px;margin-bottom:14px;opacity:.9}
 footer ul{list-style:none;display:flex;gap:18px;flex-wrap:wrap}
 footer ul a{font-family:var(--display);font-size:1.2rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2)}
 footer ul a:hover{color:var(--bone)}
+footer ul+ul{width:100%;padding-top:14px;border-top:1px solid var(--line)}
 footer small{display:block;color:var(--bone-3);font-size:.85rem;margin-top:14px;width:100%}
 
 /* gallery: mixed-aspect columns, lightbox dialog */
