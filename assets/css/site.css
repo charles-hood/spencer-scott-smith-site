@@ -123,8 +123,7 @@ p{text-wrap:pretty}
   background:rgba(15,14,12,.72);border:1px solid rgba(240,226,199,.14);
   box-shadow:0 0 0 6px rgba(15,14,12,.35);
   transition:background .2s,border-color .2s,color .2s}
-.nav ul a:hover{background:rgba(15,14,12,.92);border-color:var(--line-2)}
-.nav ul a[aria-current="page"]{border-color:var(--mustard);color:var(--mustard-2)}
+.nav ul a:hover,.nav ul a[aria-current="page"]{border-color:var(--mustard);color:var(--mustard-2);background:rgba(15,14,12,.92)}
 .nav .book{min-height:42px;padding:9px 20px 8px;font-size:1.2rem}
 .menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line-2);color:var(--bone);min-width:44px;height:44px;padding:0 14px;border-radius:var(--radius);cursor:pointer;font-family:var(--display);font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase}
 @media(max-width:1000px){
