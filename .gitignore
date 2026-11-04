@@ -21,4 +21,6 @@ poc-*.png
 # hero loop is part of the site
 !assets/video/hero-loop.mp4
 !assets/video/hero-loop.webm
+!assets/video/good-times-clip.mp4
+!assets/video/saxin-around.mp4
 .playwright-mcp/

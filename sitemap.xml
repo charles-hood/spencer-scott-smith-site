@@ -6,4 +6,5 @@
   <url><loc>https://spencerscottsmith.com/solo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://spencerscottsmith.com/epk.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://spencerscottsmith.com/contact.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://spencerscottsmith.com/gallery.html</loc></url>
 </urlset>
