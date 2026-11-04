@@ -36,6 +36,8 @@ click-to-load video embeds, the show list, the catalog strip, the forms and the
 `MusicEvent` structured data. `data/shows.json` and `data/music.json` are the only files
 the band edits week to week.
 
+`gallery.html` holds the photo gallery (Roses and Rosebuds sections, lightbox).
+
 ## Editing shows and music
 
 **Shows:** add an object to `data/shows.json`. Fields: `date` (ISO), `time`, `who`
@@ -56,11 +58,12 @@ Search the project for `YOUR_FORM_ID` and the visible `todo` pills. The list, in
 priority order:
 
 1. Formspree form id in `index.html`, `spinning-round-again.html` and `contact.html`.
-2. Headshots and short bios for the four Roses: replace the rose placeholders in the
-   member grid on `index.html` and the member list on `epk.html`.
-3. Bandsintown artist URL next to the Songkick link on `index.html` and `shows.html`.
+2. Headshots and real one-liners for the five Roses: replace the rose placeholders and
+   the stand-in blurbs in the member grid on `index.html`, and the member list on `epk.html`.
+3. Bandsintown band page link once Spencer finishes the claim (the solo page is linked).
 4. `booking@` and `press@` aliases on spencerscottsmith.com, or the address Spencer wants.
 5. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
+   The two self-hosted clips in `assets/video/` should move to YouTube when uploaded.
 6. Confirm the Georgia Songbirds placement and the MadLife live album status before
    removing those `todo` pills.
 7. The splash on `index.html` is for the single cycle. After November 11 it reads
@@ -83,10 +86,12 @@ PNGs, solo signature logo from the vector file, real band photos.
   Self-host later if the third-party request matters.
 - Colours come from the November 2026 logo kit: ink, bone, burnt mustard (the one
   interactive accent), lichen grey, and brick red kept for the single.
-- The bandanna frame is an inline SVG border-image plus two corner cutouts from
-  Spencer's bandanna photo (`assets/img/brand/bandanna-corner.png`); the cotton ground
-  is two repeating diagonal gradients on `body`. Both are decorative and ignore pointer
-  events.
+- The bandanna edges are one seamless vertical tile cut from Spencer's bandanna photo
+  (`assets/img/brand/bandanna-edge.png`), fixed down both sides of the viewport; the
+  cotton ground is two repeating diagonal gradients on `body`. Both are decorative and
+  ignore pointer events. `--edge` sets their width and the `.wrap` padding clears it.
+- `gallery.html` is hand-listed; add a photo by dropping `name.jpg`, `name.webp` and a
+  `name-t.webp` thumbnail (700 px) into `assets/img/gallery/` and adding an anchor.
 - The splash shows once per session and never for deep links or `?nosplash`.
 
 ## Deploy
