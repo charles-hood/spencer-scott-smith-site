@@ -61,7 +61,7 @@ priority order:
 
 1. Formspree form id in `contact.html` (the mailing list is a Brevo sign-up page, linked
    from the home and release pages).
-2. J.T. Lee headshot and real one-liners for four members on `index.html`.
+2. Real one-liners for four members on `index.html` (all five photos are in).
 3. Bandsintown band page link once Spencer finishes the claim (the solo page is linked).
 4. `booking@` and `press@` aliases on spencerscottsmith.com, or the address Spencer wants.
 5. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
