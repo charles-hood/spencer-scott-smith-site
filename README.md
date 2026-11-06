@@ -59,17 +59,18 @@ Apple and YouTube links.
 Search the project for `YOUR_FORM_ID` and the visible `todo` pills. The list, in
 priority order:
 
-1. Formspree form id in `index.html`, `spinning-round-again.html` and `contact.html`.
-2. Headshots and real one-liners for the five Roses: replace the rose placeholders and
-   the stand-in blurbs in the member grid on `index.html`, and the member list on `epk.html`.
+1. Formspree form id in `contact.html` (the mailing list is a Brevo sign-up page, linked
+   from the home and release pages).
+2. J.T. Lee headshot and real one-liners for four members on `index.html`.
 3. Bandsintown band page link once Spencer finishes the claim (the solo page is linked).
 4. `booking@` and `press@` aliases on spencerscottsmith.com, or the address Spencer wants.
 5. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
    The two self-hosted clips in `assets/video/` should move to YouTube when uploaded.
 6. Confirm the Georgia Songbirds placement and the MadLife live album status before
    removing those `todo` pills.
-7. The splash on `index.html` is for the single cycle. After November 11 it reads
-   "out now"; remove it, or repoint it at the next release, when that cycle ends.
+7. The splash on `index.html` is for the single cycle. `assets/js/site.js` flips the whole
+   site to "out now" at local midnight on November 11 (`RELEASE`, `html.released`,
+   `.presave-only` / `.released-only`). Remove the splash, or repoint it, when the cycle ends.
 8. Remove the `.poc` strip from every page.
 
 Done: pre-save link (HyperFollow), single artwork and 45 label, logo kit as transparent
@@ -95,6 +96,8 @@ PNGs, solo signature logo from the vector file, real band photos.
 - `gallery.html` is hand-listed; add a photo by dropping `name.jpg`, `name.webp` and a
   `name-t.webp` thumbnail (700 px) into `assets/img/gallery/` and adding an anchor.
 - The splash shows once per session and never for deep links or `?nosplash`.
+- The out-now banner is a patched copy of the pre-save banner; swap in the designer's
+  version when there is one.
 
 ## Deploy
 
