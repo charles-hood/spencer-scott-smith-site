@@ -223,7 +223,15 @@
       err.style.display = 'none';
       const email = form.querySelector('input[type=email]');
       if (!email.checkValidity()) { err.textContent = 'Enter a valid email address, like name@example.com.'; err.style.display = 'block'; email.focus(); return; }
-      if (form.action.includes('YOUR_FORM_ID')) { err.textContent = 'Form is not connected yet (placeholder Formspree id). Nothing was sent.'; err.style.display = 'block'; return; }
+      if (form.action.includes('YOUR_FORM_ID')) {
+        /* No form service yet: hand the message to the visitor's mail app, addressed to booking@. */
+        const f = new FormData(form);
+        const kind = f.get('kind') || 'Message from the website';
+        const body = ['Name: ' + (f.get('name') || ''), 'Email: ' + (f.get('email') || ''), 'Date and venue: ' + (f.get('when') || ''), '', f.get('message') || ''].join('\n');
+        location.href = 'mailto:booking@spencerscottsmith.com?subject=' + encodeURIComponent(kind + ' (via spencerscottsmith.com)') + '&body=' + encodeURIComponent(body);
+        form.style.display = 'none'; ok.style.display = 'block';
+        return;
+      }
       const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
       try {
         const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
