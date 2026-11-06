@@ -62,17 +62,17 @@ priority order:
 1. Formspree form id in `contact.html` (the mailing list is a Brevo sign-up page, linked
    from the home and release pages).
 2. Bandsintown band page link once Spencer finishes the claim (the solo page is linked).
-3. `booking@` and `press@` aliases on spencerscottsmith.com, or the address Spencer wants.
-4. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
+3. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
    The two self-hosted clips in `assets/video/` should move to YouTube when uploaded.
-5. Confirm the Georgia Songbirds placement and the MadLife live album status before
+4. Confirm the Georgia Songbirds placement and the MadLife live album status before
    removing those `todo` pills.
-6. The splash on `index.html` is for the single cycle. `assets/js/site.js` flips the whole
+5. The splash on `index.html` is for the single cycle. `assets/js/site.js` flips the whole
    site to "out now" at local midnight on November 11 (`RELEASE`, `html.released`,
    `.presave-only` / `.released-only`). Remove the splash, or repoint it, when the cycle ends.
-7. Remove the `.poc` strip from every page.
+6. Remove the `.poc` strip from every page.
 
-Done: pre-save link (HyperFollow), single artwork and 45 label, logo kit as transparent
+Done: pre-save link (HyperFollow), booking@ and press@ email, member photos and one-liners,
+single artwork and 45 label, logo kit as transparent
 PNGs, solo signature logo from the vector file, real band photos.
 
 ## Assumptions made in this proof of concept
