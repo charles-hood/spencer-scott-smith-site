@@ -364,8 +364,8 @@ textarea{min-height:140px;resize:vertical}
 footer{border-top:1px solid var(--line);padding:44px 0 48px}
 footer .wrap{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-start}
 footer .fb{font-family:var(--display);font-size:1.7rem;letter-spacing:.04em;text-transform:uppercase;line-height:1}
-footer .ft{font-style:italic;color:var(--bone-2);margin-top:8px;line-height:1.5;max-width:34ch}
-footer .cluster{width:220px;margin-bottom:14px;opacity:.9}
+footer .ft{font-style:italic;color:var(--bone-2);margin-top:8px;line-height:1.5;max-width:44ch}
+footer .cluster{width:260px;margin-bottom:14px;opacity:.95}
 footer ul{list-style:none;display:flex;gap:18px;flex-wrap:wrap}
 footer ul a{font-family:var(--display);font-size:1.2rem;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2)}
 footer ul a:hover{color:var(--bone)}
