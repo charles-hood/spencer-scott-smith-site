@@ -95,8 +95,6 @@ PNGs, solo signature logo from the vector file, real band photos.
 - `gallery.html` is hand-listed; add a photo by dropping `name.jpg`, `name.webp` and a
   `name-t.webp` thumbnail (700 px) into `assets/img/gallery/` and adding an anchor.
 - The splash shows once per session and never for deep links or `?nosplash`.
-- The out-now banner is a patched copy of the pre-save banner; swap in the designer's
-  version when there is one.
 
 ## Deploy
 
