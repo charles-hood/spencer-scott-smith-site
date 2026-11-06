@@ -19,10 +19,27 @@
     });
   }
 
+  /* ---- release state: Spinning 'Round Again drops 2026-11-11 (local midnight) ---- */
+  const RELEASE = new Date(2026, 10, 11, 0, 0, 0);
+  const root = document.documentElement;
+  const applyRelease = () => {
+    const out = new Date() >= RELEASE;
+    root.classList.toggle('released', out);
+    document.querySelectorAll('[data-presave]').forEach(a => { a.textContent = out ? 'Listen now' : (a.dataset.label || a.textContent); });
+    document.querySelectorAll('[data-when]').forEach(el => { el.textContent = out ? 'New single, out now' : 'New single, out November 11'; });
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const ms = RELEASE - new Date();
+      if (ms <= 0) { el.innerHTML = ''; return; }
+      const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
+      el.innerHTML = `<div><div class="n">${d}</div><div class="l">days</div></div><div><div class="n">${h}</div><div class="l">hours</div></div><div><div class="n">${m}</div><div class="l">min</div></div>`;
+    });
+  };
+  document.querySelectorAll('[data-presave]').forEach(a => { a.dataset.label = a.textContent; });
+  applyRelease(); setInterval(applyRelease, 30000);
+
   /* ---- splash: the single, once per session ---- */
   const splash = document.getElementById('splash');
   if (splash) {
-    const root = document.documentElement;
     const close = () => {
       root.classList.remove('splash-on'); root.classList.add('no-splash');
       try { sessionStorage.setItem('sss-splash', '1'); } catch (e) {}
@@ -30,20 +47,6 @@
     };
     splash.querySelector('[data-enter]').addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && root.classList.contains('splash-on')) close(); });
-    const release = new Date(2026, 10, 11);
-    const when = splash.querySelector('[data-when]'), count = splash.querySelector('[data-count]'), pre = splash.querySelector('[data-presave]');
-    const tick = () => {
-      const ms = release - new Date();
-      if (ms <= 0) {
-        when.textContent = 'New single, out now';
-        count.innerHTML = '';
-        pre.textContent = 'Listen now';
-        return;
-      }
-      const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4);
-      count.innerHTML = `<div><div class="n">${d}</div><div class="l">days</div></div><div><div class="n">${h}</div><div class="l">hours</div></div><div><div class="n">${m}</div><div class="l">min</div></div>`;
-    };
-    tick(); setInterval(tick, 30000);
     if (root.classList.contains('splash-on')) { const b = splash.querySelector('[data-enter]'); if (b) b.focus({ preventScroll: true }); }
   }
 
@@ -199,12 +202,12 @@
     catch (e) { strip.innerHTML = '<div class="empty"><strong>Catalog did not load.</strong> Everything is on Spotify under Spencer Scott Smith.</div>'; return; }
     strip.innerHTML = data.releases.map(r => {
       const links = r.next
-        ? `<a href="${r.presave || r.page}" target="_blank" rel="noopener">Pre-save</a><a href="${r.page}">About</a>`
+        ? `<a href="${r.presave || r.page}" target="_blank" rel="noopener">${new Date() < RELEASE ? 'Pre-save' : 'Listen'}</a><a href="${r.page}">About</a>`
         : [r.spotify && `<a href="${r.spotify}" target="_blank" rel="noopener">Spotify</a>`,
            r.apple && `<a href="${r.apple}" target="_blank" rel="noopener">Apple</a>`,
            r.youtube && `<a href="${r.youtube}" target="_blank" rel="noopener">YouTube</a>`].filter(Boolean).join('');
       return `<article class="rel${r.next ? ' next' : ''}">
-        <div class="yr num">${r.next ? 'Out Nov 11' : r.year}</div>
+        <div class="yr num">${r.next && new Date() < RELEASE ? 'Out Nov 11' : r.year}</div>
         <div class="ti">${r.title}</div>
         <div class="by">${r.credit}</div>
         <div class="links">${links}</div>

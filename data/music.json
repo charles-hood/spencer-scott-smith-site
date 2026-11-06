@@ -4,7 +4,7 @@
     "spotify": "https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW",
     "apple": "https://music.apple.com/us/artist/spencer-scott-smith/1671007034",
     "youtube": "https://www.youtube.com/@spencerscottsmithmusic",
-    "amazon": "https://www.amazon.com/music/player/artists/B0C1YPKZ7H",
+    "amazon": "https://music.amazon.com/artists/B0BVDNSFR7",
     "instagram": "https://www.instagram.com/spencerscottsmith_music/",
     "facebook": "https://www.facebook.com/spencerscottsmithmusic",
     "tiktok": "https://www.tiktok.com/@spencerscottsmith"
@@ -16,7 +16,6 @@
       "date": "2026-11-11",
       "credit": "Spencer Scott Smith & The Cherokee Roses",
       "next": true,
-      "presave": "https://distrokid.com/hyperfollow/spencerscottsmith/spinning-round-again",
       "presave": "",
       "page": "/spinning-round-again.html"
     },
@@ -26,7 +25,7 @@
       "date": "2026-07-15",
       "credit": "Spencer Scott Smith & The Cherokee Roses",
       "spotify": "https://open.spotify.com/track/0UuRNvj6YFgwfK72PF0c7O",
-      "apple": "https://music.apple.com/us/artist/spencer-scott-smith/1671007034",
+      "apple": "https://music.apple.com/us/album/in-the-heat-of-the-night-live-at-the-rhythm-ranch-acoustic/6788800862?i=6788800863",
       "youtube": "https://www.youtube.com/watch?v=Ym08TnbS5fs"
     },
     {
@@ -52,7 +51,8 @@
       "date": "2024-02-09",
       "credit": "Spencer Scott Smith",
       "spotify": "https://open.spotify.com/track/4g6ENWHtmwxj8PoD9e9hOB",
-      "apple": "https://music.apple.com/us/album/hello-single/1727420092"
+      "apple": "https://music.apple.com/us/album/hello-single/1727420092",
+      "youtube": "https://www.youtube.com/watch?v=6wOZewtPDf4"
     },
     {
       "title": "My Saving Grace",
@@ -67,7 +67,7 @@
       "year": "2021",
       "credit": "Spencer Scott Smith",
       "spotify": "https://open.spotify.com/track/7tvfSFRgC4k4DpWH1cHocm",
-      "apple": "https://music.apple.com/us/artist/spencer-scott-smith/1671007034",
+      "apple": "https://music.apple.com/us/album/in-the-heat-of-the-night-single/1687495923",
       "youtube": "https://www.youtube.com/watch?v=2aYx4p_MVDQ"
     }
   ]

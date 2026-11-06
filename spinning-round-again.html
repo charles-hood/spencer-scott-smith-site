@@ -14,11 +14,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/img/brand/favicon-32.png?v=20261104i" sizes="32x32">
+<link rel="icon" href="/assets/img/brand/favicon-32.png?v=20261105a" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261104i">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261105a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,7 +47,7 @@
 <div class="edge t" aria-hidden="true"></div><div class="edge b" aria-hidden="true"></div><div class="edge l" aria-hidden="true"></div><div class="edge r" aria-hidden="true"></div>
 
 <nav class="nav solid" id="nav" aria-label="Main">
-  <a class="brand" href="/"><img src="/assets/img/brand/badge.png?v=20261104i" alt="" width="1281" height="1274"><span>SSS &amp; The Cherokee Roses</span></a>
+  <a class="brand" href="/"><img src="/assets/img/brand/badge.png?v=20261105a" alt="" width="1281" height="1274"><span>SSS &amp; The Cherokee Roses</span></a>
   <div class="links" id="menu">
     <ul>
       <li><a href="/#single">Single</a></li>
@@ -64,21 +64,25 @@
 </nav>
 
 <main id="main">
-<picture>
+<picture class="presave-only">
   <source srcset="/assets/img/releases/spinning-round-again-banner.webp" type="image/webp">
   <img class="banner" src="/assets/img/releases/spinning-round-again-banner.jpg" alt="Spinning 'Round Again. Pre-save, out 11.11. A barn, windmill and ranch gate under a paper sky." width="1702" height="630" fetchpriority="high" style="margin-top:72px">
+</picture>
+<picture class="released-only">
+  <source srcset="/assets/img/releases/spinning-round-again-banner-out.webp" type="image/webp">
+  <img class="banner" src="/assets/img/releases/spinning-round-again-banner-out.jpg" alt="Spinning 'Round Again. Out now. A barn, windmill and ranch gate under a paper sky." width="1702" height="630" loading="lazy" style="margin-top:72px">
 </picture>
 <header class="wrap rel-hero" style="padding-top:var(--sect)">
   <div class="art">
     <picture><source srcset="/assets/img/releases/spinning-round-again.webp" type="image/webp"><img src="/assets/img/releases/spinning-round-again.jpg" alt="Spinning 'Round Again single cover: the title in red block letters over handwritten lyric fragments, a barn, a windmill and a ranch gate marked RR" width="1200" height="1200"></picture>
   </div>
   <div>
-    <div class="when">New single, out Tuesday, November 11, 2026</div>
+    <div class="when"><span class="presave-only">New single, out Wednesday, November 11, 2026</span><span class="released-only">New single, out now</span></div>
     <h1>Spinning 'Round Again</h1>
     <p class="lede" style="margin-top:18px">Spencer Scott Smith &amp; The Cherokee Roses. Recorded at Rhythm Ranch Recording, Alpharetta, Georgia.</p>
-    <div class="count num" id="count" aria-live="polite"></div>
+    <div class="count num" data-count aria-live="polite"></div>
     <div class="ctas" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:26px">
-      <a class="btn btn-brick" id="presave" href="https://distrokid.com/hyperfollow/spencerscottsmith/spinning-round-again" target="_blank" rel="noopener">Pre-save on Spotify and Apple</a>
+      <a class="btn btn-brick" id="presave" data-presave href="https://distrokid.com/hyperfollow/spencerscottsmith/spinning-round-again" target="_blank" rel="noopener">Pre-save on Spotify and Apple</a>
       <a class="btn btn-ghost" href="https://www.instagram.com/reel/DfE_XUjReWS/" target="_blank" rel="noopener">Watch the teaser</a>
     </div>
     <div class="side" style="display:grid;grid-template-columns:1.7fr 1fr;gap:14px;margin-top:30px;max-width:520px;align-items:center">
@@ -101,18 +105,9 @@
       </div>
     </div>
     <div>
-      <h2>Hear it first</h2>
-      <p class="lede">Join the list and the stream link lands in your inbox the morning of the 11th.</p>
-      <form data-formspree action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate style="margin-top:22px">
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
-          <p class="err" role="alert"></p>
-        </div>
-        <button class="btn btn-primary" type="submit" style="margin-top:14px">Join the list</button>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-      </form>
-      <div class="form-ok" role="status">You're on the list. See you on the 11th.</div>
+      <h2>Join the Rosebuds</h2>
+      <p class="lede">The fan club. The stream link lands in your inbox the morning of the 11th, then dates, demos and merch after that.</p>
+      <div class="ctas" style="margin-top:22px"><a class="btn btn-primary" href="https://efca0568.sibforms.com/v2/serve/MUIFABzQY69TCaYsqvFNLdzazwsur7kGmxUbcrTcbfjryDJaux2kqU195nG2nvNBJAOwwrbbCDPtuQ1YTz_KWcUQkReQHPDbZkvH2n2UinGYJc78FE2wdlApAypJ4HjKDwRW8XjLRtsAshoss0VUyct-heoSkUX2gIKOVYPBVe2dnfS24UDWJNEn3QpKVj7TbpPYfXNB5UbAi7By" target="_blank" rel="noopener">Join the fan club</a></div>
     </div>
   </div>
 </section>
@@ -121,9 +116,9 @@
 <footer>
   <div class="wrap">
     <div>
-      <img class="cluster" src="/assets/img/brand/cluster.png?v=20261104i" alt="" width="1653" height="585" loading="lazy">
+      <img class="cluster" src="/assets/img/brand/cluster.png?v=20261105a" alt="" width="1653" height="585" loading="lazy">
       <div class="fb">Spencer Scott Smith &amp; The Cherokee Roses</div>
-      <div class="ft">Rooted in red clay.<br>Drowned in muddy waters.<br>That's where The Cherokee Roses grow wild.</div>
+      <div class="ft">Rooted in red clay.<br>Washed in muddy waters.<br>That's where you'll find The Cherokee Roses.</div>
     </div>
     <ul aria-label="Social links">
       <li><a href="https://www.instagram.com/spencerscottsmith_music/" target="_blank" rel="noopener">Instagram</a></li>
@@ -133,26 +128,12 @@
       <li><a href="https://music.apple.com/us/artist/spencer-scott-smith/1671007034" target="_blank" rel="noopener">Apple Music</a></li>
       <li><a href="https://www.youtube.com/@spencerscottsmithmusic" target="_blank" rel="noopener">YouTube</a></li>
       <li><a href="https://www.bandsintown.com/a/15673501-spencer-scott-smith" target="_blank" rel="noopener">Bandsintown</a></li>
-      <li><a href="https://www.songkick.com/artists/10383976-spencer-scott-smith" target="_blank" rel="noopener">Songkick</a></li>
     </ul>
     <ul aria-label="More" style="margin-top:10px"><li><a href="/sponsors.html">Sponsors</a></li><li><a href="/gallery.html">Gallery</a></li><li><a href="/epk.html">Press kit</a></li><li><a href="/contact.html">Contact</a></li></ul>
     <small>© 2026 Spencer Scott Smith. Woodstock, Georgia.</small>
   </div>
 </footer>
-<div class="poc" role="note">Proof of concept, third pass, November 2026. Pre-save link is live.</div>
-<script src="/assets/js/site.js?v=20261104i" defer></script>
-<script>
-(function(){
-  var el=document.getElementById('count'); if(!el) return;
-  var target=new Date(2026,10,11,0,0,0);
-  function tick(){
-    var ms=target-new Date();
-    if(ms<=0){ el.innerHTML='<div><div class="n">Out now</div><div class="l">Stream it everywhere</div></div>'; var p=document.getElementById('presave'); if(p) p.textContent='Listen now'; return; }
-    var d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5), m=Math.floor(ms%36e5/6e4);
-    el.innerHTML='<div><div class="n">'+d+'</div><div class="l">days</div></div><div><div class="n">'+h+'</div><div class="l">hours</div></div><div><div class="n">'+m+'</div><div class="l">minutes</div></div>';
-  }
-  tick(); setInterval(tick,30000);
-})();
-</script>
+<div class="poc" role="note">Fifth pass, November 2026. Flips to "out now" at midnight on the 11th.</div>
+<script src="/assets/js/site.js?v=20261105a" defer></script>
 </body>
 </html>
