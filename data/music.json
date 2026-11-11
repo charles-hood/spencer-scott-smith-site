@@ -1,5 +1,5 @@
 {
-  "_note": "Every release is on streaming under the artist name Spencer Scott Smith. credit is how the band bills it. next: true marks the unreleased single. presave is the HyperFollow or Feature.fm link once it exists.",
+  "_note": "Every release is on streaming under the artist name Spencer Scott Smith. credit is how the band bills it. next: true marks the unreleased single. presave holds the listen link for the newest single (the SongPort smart link since release day).",
   "artist": {
     "spotify": "https://open.spotify.com/artist/5Wp9gpcf5KGO6pVcpgvgLW",
     "apple": "https://music.apple.com/us/artist/spencer-scott-smith/1671007034",
@@ -16,7 +16,7 @@
       "date": "2026-11-11",
       "credit": "Spencer Scott Smith & The Cherokee Roses",
       "next": true,
-      "presave": "https://distrokid.com/hyperfollow/spencerscottsmith/spinning-round-again",
+      "presave": "https://songport.link/t/spencer-scott-smith-spencer-scott-smith-the-cheroke-438gud5e",
       "page": "/spinning-round-again.html"
     },
     {
