@@ -24,7 +24,7 @@ directly.
 | File | What it is |
 |---|---|
 | `index.html` | Band front door: video hero, new single, next shows, watch, the band, catalog, solo door, mailing list |
-| `spinning-round-again.html` | Release landing page for the Nov 11, 2026 single, with countdown and pre-save button |
+| `spinning-round-again.html` | Release landing page for the Nov 11, 2026 single, with the out-now banner and Listen button |
 | `shows.html` | All dates with band / solo filter, recent shows, booking blocks |
 | `solo.html` | Spencer solo: bio, what he does, solo dates, catalog, tip jar |
 | `epk.html` | Press kit: single, bios in three lengths, members, photos, video, quotes, 2026 shows, stage plot, contacts |
@@ -50,9 +50,9 @@ four band dates; `solo.html` shows solo and duo dates.
 Once a Bandsintown for Artists profile exists, the official widget goes into `shows.html`
 where the HTML comment says so, and this file becomes the fallback.
 
-**Music:** add an object to `data/music.json`. For an unreleased single set `next: true`
-and point `page` at its landing page; when it is out, remove `next` and add the Spotify,
-Apple and YouTube links.
+**Music:** add an object to `data/music.json`. The newest single carries `next: true`,
+`listen` (its smart link, SongPort for the current one) and `page` (its landing page), and
+shows Listen and About buttons. Older releases list their Spotify, Apple and YouTube links.
 
 ## Placeholders to replace before launch
 
@@ -61,15 +61,15 @@ priority order:
 
 1. Formspree form id in `contact.html` (the mailing list is a Brevo sign-up page, linked
    from the home and release pages).
-2. Bandsintown band page link once Spencer finishes the claim (the solo page is linked).
+2. Bandsintown official widget on `shows.html` (band and solo pages are both claimed and
+   linked).
 3. Band promo video for the EPK; stage plot and input list PDFs; one-sheet PDF.
    The two self-hosted clips in `assets/video/` should move to YouTube when uploaded.
 4. Confirm the Georgia Songbirds placement and the MadLife live album status before
    removing those `todo` pills.
-5. The splash on `index.html` is for the single cycle. `assets/js/site.js` flips the whole
-   site to "out now" at local midnight on November 11 (`RELEASE`, `html.released`,
-   `.presave-only` / `.released-only`). Remove the splash, or repoint it, when the cycle ends.
-6. Remove the `.poc` strip from every page.
+5. The splash on `index.html` is for the single cycle. The pre-save state and its
+   automatic midnight flip were removed after release day (November 11, 2026); the pages
+   are plain out-now markup. Remove the splash, or repoint it, when the cycle ends.
 
 Done: pre-save link (HyperFollow), booking@ and press@ email, member photos and one-liners,
 single artwork and 45 label, logo kit as transparent
