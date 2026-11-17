@@ -80,7 +80,7 @@ PNGs, solo signature logo from the vector file, real band photos.
 - One site at spencerscottsmith.com, band first. A band domain, if bought, redirects here.
 - Every release is credited on streaming to the artist "Spencer Scott Smith", so all
   streaming links point at that profile.
-- Hometown is Woodstock, Georgia. Tagline is the band's "rolled in" version.
+- Hometown is Woodstock, Georgia. The tagline, top and bottom, is "Rooted in red clay / Washed in muddy waters / The Cherokee Roses".
 - The hero loop is 12 seconds of the MadLife footage, cropped to remove the burned-in
   lyric captions, muted, about 1.4 MB. It does not play when the visitor prefers
   reduced motion; the poster shows instead.
